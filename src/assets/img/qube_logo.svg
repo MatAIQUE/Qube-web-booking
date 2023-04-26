@@ -1,0 +1,17 @@
+<svg id="Group_8" data-name="Group 8" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="81.193" height="20.447" viewBox="0 0 81.193 20.447">
+  <defs>
+    <linearGradient id="linear-gradient" x1="-0.02" y1="0.592" x2="4.334" y2="-0.18" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4fb680"/>
+      <stop offset="1" stop-color="#10a9ce"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-0.423" y1="0.925" x2="8.887" y2="-3.362" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="-1.192" y1="0.777" x2="3.334" y2="-0.008" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="-2.316" y1="0.981" x2="2.15" y2="0.189" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-5" x1="-3.555" y1="1.205" x2="1.076" y2="0.419" xlink:href="#linear-gradient"/>
+  </defs>
+  <path id="Path_43" data-name="Path 43" d="M225.895,2047.588l-3.4,3.4v10.069l3.392,3.4h11.874l3.395-3.4v-10.074l-3.4-3.4Zm11.877,12.341-1.125,1.126h-9.539l-1.241-1.245V2052.4l1.391-1.392,9.4-.014,1.117,1.118Z" transform="translate(-222.495 -2047.588)" fill="url(#linear-gradient)"/>
+  <rect id="Rectangle_2" data-name="Rectangle 2" width="8.726" height="3.04" transform="translate(4.969 17.407)" fill="url(#linear-gradient-2)"/>
+  <path id="Path_44" data-name="Path 44" d="M281.339,2060.012l-1.368,1.37h-8.287l-1.4-1.4v-11.81H266.9l-.006,13.188,3.4,3.4h11.174l3.378-3.381v-13.208h-3.5Z" transform="translate(-245.352 -2047.89)" fill="url(#linear-gradient-3)"/>
+  <path id="Path_45" data-name="Path 45" d="M326.6,2056.151a5.76,5.76,0,0,0,1.012-3.26,5.244,5.244,0,0,0-5.28-4.714H310.71v16.464H325.1s3.8-2.411,3.8-4.626S326.6,2056.151,326.6,2056.151Zm-12.5-4.766,9.163-.09a3.131,3.131,0,0,1,0,3.659H314.1Zm10.2,10.069H314.1v-3.569l10.2-.091A3.132,3.132,0,0,1,324.305,2061.455Z" transform="translate(-267.912 -2047.891)" fill="url(#linear-gradient-4)"/>
+  <path id="Path_46" data-name="Path 46" d="M358.522,2051.293h12.71v-3.12h-14.05l-3.492,3.12v10.068l3.392,3.4h14.151v-3.428H359.019l-1.892-1.895v-1.643h12.5v-2.84h-12.5v-2.262Z" transform="translate(-290.039 -2047.89)" fill="url(#linear-gradient-5)"/>
+</svg>

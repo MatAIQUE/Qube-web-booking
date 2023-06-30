@@ -82,7 +82,7 @@ const InputReceiverNumber = ({setNumber}) => {
 
 
             <div className="row">
-                <label>Please enter your mobile number</label>
+                <label>Please enter recipient's mobile number</label>
                 <div class="input-group mt-3">
                     <div class="input-group-prepend">
                     <span class="input-group-text px-3 height-66 text-center append-span" id="inputGroupPrepend"><PHFlag/></span>

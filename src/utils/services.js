@@ -16,7 +16,7 @@ const lockerServices = [
     {
         serviceID: '0002',
         serviceType: "drop",
-        serviceDescription: "Parcels, orders, and deliveries are now contactless, fast, and secure with Qube Smartlockers",
+        serviceDescription: "Parcels, orders, and deliveries are now contactless, fast, and secure with QUBE Smartlockers",
         serviceImage: svgs.dropSvg
     },
     {

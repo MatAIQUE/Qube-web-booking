@@ -10,7 +10,7 @@ const HomePageWrap = () => {
                 <div className='col-lg-5 left-panel align-self-center'>
                     {/* left */}
                     <div className='row'>
-                        <div className='col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6'><BannerText unboldChar="Discover the power of" boldChar="SMARTLOCKERS" /></div>
+                        <div className='col-xl-12 my-auto col-lg-12 col-md-12 col-sm-6 col-6'><BannerText unboldChar="Discover the power of" boldChar="SMARTLOCKERS" /></div>
                         <div className='col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6'><BannerLogo/></div>
                     </div>
                 </div>

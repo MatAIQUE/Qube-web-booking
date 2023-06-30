@@ -5,47 +5,32 @@ const VerifyOtp = ({content, css,verifyNumber, service, moduleData, tat, nextPag
     const [mobileNumber, setMobileNumber] = useState(0)
     const [getMobileNumber, setGetMobileNumber] = useState(0)
     const [activeBorder, setActiveBorder] = useState('')
+    let mobilenumber = router.query.mobilenumber
 
-    /*const setMobile = () => {
-        if(document.getElementById('otp1').value.length == 1) {
-            document.getElementById('otp2').focus()
-            console.log('1')
-        }
-        else if(document.getElementById('otp2').value.length == 1) {
-            document.getElementById('otp3').focus()
-            console.log('2')
-        }
-        else if(document.getElementById('otp3').value.length == 1) {
-            document.getElementById('otp4').focus()
-            console.log('3')
-        }
-        else if(document.getElementById('otp4').value.length == 1) {
-            document.getElementById('otp5').focus()
-            console.log('4')
-        }
-        else if(document.getElementById('otp5').value.length == 1) {
-            document.getElementById('otp6').focus()
-            console.log('5')
-        }
-    }*/
+    function onlyNumberInput()
+    {
+            var key = event.which || event.keyCode;
+            if (key && (key <= 47 || key >= 58) && key != 8) {
+                event.preventDefault();
+            }
+    }
     useEffect(() => {
         setNumber(getMobileNumber)
         setMobileNumber(getMobileNumber)
-        
-        
     })
-
-
 
     return (
         <>
-            <div className='container-fluid'>
-                
-                <div>Enter the OTP that you received</div>
-                <div className="row">
-                    <input type="text" id="otp1" className="fs-28 rounded border-dark font-success col-md-6 height-66 text-center" maxLength={6} onChange={(e)=>setGetMobileNumber(e.target.value)}/>
+        <div className="container-fluid">
+            <div className="row">
+                <label>OTP sent to: <strong>{mobilenumber}</strong></label>
+                <div className="input-group mt-3">
+                    <input type="text" id="otp1" className="form-control fs-28 font-success my-3 height-66 text-center shadow-none" maxLength={6} onChange={(e)=>setGetMobileNumber(e.target.value)}
+                    onKeyDown={onlyNumberInput}/>
                 </div>
             </div>
+        </div>
+           
         </>
     )
 }

@@ -7,7 +7,18 @@ const SizesList = () => {
     const router = useRouter()
     let moduleData = router.query.moduleData;
     const navPage = (doorSize, doorSizeName) => {
-        
+      
+      router.push({
+        pathname: '/inputnumber',
+        query: {
+          service: doorSize,
+          moduleData: moduleData,
+          tat: '',
+
+
+        }
+      },'/inputnumber')
+        /*
         router.push({
             pathname: '/inputnumber',
             query: {
@@ -18,7 +29,7 @@ const SizesList = () => {
 
 
             }
-          },'/inputnumber')
+          },'/inputnumber')*/
     }
     return (
         <>
@@ -28,6 +39,11 @@ const SizesList = () => {
                       {
                           DoorSizes.map((val) =>
                               <li className={`row bg bg-white rounded align-items-center mb-2 border-shadow services px-3 ${active == val && 'active'}`} key={val.doorSizeCode} onMouseLeave={()=> setActive(null)} onMouseEnter={()=> setActive(val)} onClick={() => navPage(val.doorSizeCode, val.doorsizesName)}>
+                                  
+                                  
+                                  
+                                  
+                                  {/*                                   
                                   <div className="col-lg-2 col-md-3 col-sm-3 col-3">
                                     <Image src={val.serviceImage} alt=""/>
                                       
@@ -36,6 +52,37 @@ const SizesList = () => {
                                   <div className='text-left col-lg-8 col-md-9 col-sm-9 col-9'>
                                     <h2 className="fs-28 font-dark text-capitalize m-0">{val.doorsizesName}</h2>
                                   </div>
+                                   */}
+
+
+
+
+
+
+                                    {/* module image */}
+                                    <div className='col-3 text-center'>
+                                      <Image src={val.serviceImage} alt=""/>
+                                    </div>
+
+                                    {/* module content */}
+                                    <div className='col-9'>
+                                      {/* module title */}
+                                      <div className='row'>
+                                        {/* title */}
+                                        <div className='container'>
+                                          <div className='row font-semibold mb-1'>
+                                            <div className='col-12 fs-28 font-capitalize font-dark'>
+                                              {val.doorsizesName}
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+
+
+
+
                                   
                               </li>
                             

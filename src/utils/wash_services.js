@@ -15,9 +15,9 @@ const washServices = [
     },
     {
         serviceID: '3',
-        serviceTypeCode: "bagcare",
-        serviceType: "bag care",
-        serviceImage: lottieFiles.bagcare
+        serviceTypeCode: "dryclean",
+        serviceType: "dry clean",
+        serviceImage: lottieFiles.dryclean
     },
     {
         serviceID: '4',
@@ -33,9 +33,9 @@ const washServices = [
     },
     {
         serviceID: '6',
-        serviceTypeCode: "dryclean",
-        serviceType: "dry clean",
-        serviceImage: lottieFiles.dryclean
+        serviceTypeCode: "bagcare",
+        serviceType: "bag care",
+        serviceImage: lottieFiles.bagcare
     }
 ]
 

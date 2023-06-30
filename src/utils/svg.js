@@ -13,7 +13,10 @@ const svgs = {
     small: require('../assets/img/s.svg').default,
     medium: require('../assets/img/m.svg').default,
     large: require('../assets/img/l.svg').default,
-    xl: require('../assets/img/l.svg').default
+    xl: require('../assets/img/l.svg').default,
+    phFlag: require('../assets/img/phflag.svg'),
+    checkCircle: require('../assets/img/check-circle.svg'),
+    target: require('../assets/img/target.svg')
   }
 export default svgs 
   

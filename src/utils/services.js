@@ -8,7 +8,7 @@ const lockerServices = [
     },
 
     {
-        serviceID: '0006',
+        serviceID: '0005',
         serviceType: "move",
         serviceDescription: "Place item inside the locker and have it delivered on your preferred location or another locker",
         serviceImage: svgs.moveSvg
@@ -20,7 +20,7 @@ const lockerServices = [
         serviceImage: svgs.dropSvg
     },
     {
-        serviceID: '0005',
+        serviceID: '0003',
         serviceType: "keep",
         serviceDescription: "Keep your item and use it as your own locker for hours, days, weeks, or months!",
         serviceImage: svgs.keepSvg

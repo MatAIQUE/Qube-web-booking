@@ -5,7 +5,9 @@ module.exports = global.config = {
       bigBannerDivide: "of",
       bigBannerTextBold: "SMARTLOCKERS",
       loggedOutText: "Seems like you aren't logged in",
-      verificationText: "Proceed with verification"
+      verificationText: "Proceed with verification",
+      createAccount: "Create Account",
+      loginAccount: "Login"
     },
     breadcrumbs: {
       home: "Home",

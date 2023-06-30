@@ -1,6 +1,5 @@
 
-import FacebookLogin from 'react-facebook-login'
-import GoogleLogin from 'react-google-login';
+
 const SocialMedia = () => {
     
     const responseFacebook = (response) => {
@@ -16,8 +15,8 @@ const SocialMedia = () => {
     }
     return (
         <>
-            <div>
-                <FacebookLogin
+          {/*}   <div>
+               <FacebookLogin
                 appId="263179379473101"
                 autoLoad={false}
                 fields="name,email,picture"
@@ -34,7 +33,7 @@ const SocialMedia = () => {
                 onFailure={responseGoogle}
                 cookiePolicy={'single_host_origin'}
                 className=' border rounded text-dark bg-fb col-lg-12 col-12 py-2'/>
-            </div>
+    </div>*/ }
         </>
     )
 }

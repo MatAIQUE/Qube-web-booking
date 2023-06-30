@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 
+import PHFlag from "./flag"
 import Lottie from "lottie-react";
 import bounceLoader from "../../assets/lottie/bounceLoader"
 import svgs from '@/utils/svg'
@@ -49,7 +50,7 @@ const InputReceiverNumber = ({setNumber}) => {
             <div className="row mb-5 px-3 alert alert-success">
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-8 my-auto text-success mb-2">
+                        <div className="col-8 my-auto text-success">
                             <label>1. {mobilenumber}</label>
                         </div>
                         {/*                         
@@ -57,7 +58,7 @@ const InputReceiverNumber = ({setNumber}) => {
                             <Lottie animationData={bounceLoader} loop={true}  className="w-30"/>
                         </div>
                          */}
-                        <div className="col-4 mb-2 tawkr">
+                        <div className="col-4 my-auto tawkr">
                             <Image src={svgs.checkCircle} alt=""/>
                         </div>
                         
@@ -65,11 +66,11 @@ const InputReceiverNumber = ({setNumber}) => {
                 </div>
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-8 font-semibold text-success my-auto mb-2">
+                        <div className="col-8 font-semibold text-success my-auto">
                             <label>2. Enter recipient's number</label>
                         </div>
                         
-                        <div className="col-4 mb-2 tawkr">
+                        <div className="col-4 my-auto tawkr">
                             <Lottie animationData={bounceLoader} loop={true}  className="w-30"/>
                         </div>
                         
@@ -81,10 +82,13 @@ const InputReceiverNumber = ({setNumber}) => {
 
 
             <div className="row">
-                <label>Please enter recipient's mobile number</label>
+                <label>Please enter your mobile number</label>
                 <div class="input-group mt-3">
-                    <input autoComplete="off" type="text" maxLength={11} class="form-control fs-28 font-success height-66 text-center shadow-none" onChange={(e)=>setGetMobileNumber(e.target.value)} 
-                    onKeyDown={onlyNumberInput} required/>
+                    <div class="input-group-prepend">
+                    <span class="input-group-text px-3 height-66 text-center append-span" id="inputGroupPrepend"><PHFlag/></span>
+                    </div>
+                    <input autoComplete="off" type="text" class="form-control fs-28 font-success height-66 text-center shadow-none" maxLength={11}  onChange={(e)=>setGetMobileNumber(e.target.value)} 
+                    onKeyDown={onlyNumberInput} id="validationCustomUsername" placeholder="0 9 • •  • • •  • • • •" aria-describedby="inputGroupPrepend" required/>
                 </div>
             </div>
 

@@ -35,10 +35,10 @@ const InputMobileNumber = ({setNumber}) => {
             <div className="row mb-5 px-3 alert alert-success">
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-8 my-auto font-semibold text-success mb-2">
+                        <div className="col-8 my-auto font-semibold text-success">
                             <label>1. Enter your number</label>
                         </div>
-                        <div className="col-4 mb-2 tawkr">
+                        <div className="col-4 my-auto tawkr">
                             <Lottie animationData={bounceLoader} loop={true}  className="w-30"/>
                         </div>
                         {/* 
@@ -50,7 +50,7 @@ const InputMobileNumber = ({setNumber}) => {
                 </div>
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-8 my-auto mb-2">
+                        <div className="col-8 my-auto">
                             <label>2. Enter recipient's number</label>
                         </div>
                         {/* 

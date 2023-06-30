@@ -56,12 +56,12 @@ const Services = () => {
                                   */}
 
                                   {/* module image */}
-                                  <div className='col-3 text-center'>
+                                  <div className='col-3 col-lg-2 text-center'>
                                     <Player 
                                       src={val.serviceImage}
                                       loop
                                       autoplay
-                                      className='p-lg-2 m-lg-2 p-md-0 mb-3'/>
+                                      className=''/>
                                   </div>
 
                                   {/* module content */}

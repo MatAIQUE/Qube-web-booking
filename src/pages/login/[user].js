@@ -1,10 +1,8 @@
-import { useRouter } from "next/router"
-import styles from '@/styles/Home.module.css'
+import { useRouter } from "next/router";
+import styles from "@/styles/Home.module.css";
+import { useContext } from "react";
+
 const UserProfile = () => {
-    const router = useRouter()
-    const {user} = router.query
-    return (
-        <div className={styles.main}> hello {user}! </div>
-    )
-}
-export default UserProfile
+  return <div className={styles.main}> hello </div>;
+};
+export default UserProfile;

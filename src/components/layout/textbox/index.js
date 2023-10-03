@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react"
-const Textbox = ({css, setUser}) => {
-    const [getUser, setUserName] = useState('')
-    useEffect(() => {
-        setUser(getUser)
-    })
+const Textbox = ({css, setUser, placeholder, onChange, maxLength, type, value}) => {
     return (
-        <input type="text" maxLength={11} onChange={(e)=>setUserName(e.target.value)} placeholder="Please enter your mobile number" className={css}/>
+        <input type={type} value={value} maxLength={maxLength} onChange={onChange} placeholder={placeholder} className={css}/>
     )
 }
 

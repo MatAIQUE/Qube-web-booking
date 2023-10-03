@@ -1,17 +1,24 @@
-import Head from './head'
-import Header from '../layout/header/'
-import Breadcrumb from '../layout/breadcrumbs'
-const Layout = ({children}) => {
-    return (
-        <div className="container">
-            <Head />
-            <Header />   
-            <Breadcrumb /> 
-            
-            <div>{children}</div>
-        </div>
-    )  
+import Head from "./head";
+import Header from "../layout/header/";
+import Breadcrumb from "../layout/breadcrumbs";
+import { AuthContextProvider } from "@/context/AuthContext";
+import { LocationContextProvider } from "@/context/LocationContext";
+import { LoadingContextProvider } from "@/context/LoadingContext";
+const Layout = ({ children }) => {
+  return (
+    <AuthContextProvider>
+      <div className='container'>
+        <LoadingContextProvider>
+          <Head />
+          <Header />
+          <Breadcrumb />
+          <div>
+            <LocationContextProvider>{children}</LocationContextProvider>
+          </div>
+        </LoadingContextProvider>
+      </div>
+    </AuthContextProvider>
+  );
+};
 
-}
-
-export default Layout
+export default Layout;

@@ -16,7 +16,7 @@ const SizesList = () => {
   let serviceName = router.query.serviceName;
   let mobileNumber = user?.mobileNumber;
 
-  const serviceFileName = serviceName.toLowerCase();
+  const serviceFileName = serviceName?.toLowerCase();
 
   const navPage = (e) => {
     router.push(

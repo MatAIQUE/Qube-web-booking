@@ -17,7 +17,7 @@ const Services = () => {
   const { locData } = useLocation();
 
   const navPage = (e, moduleData) => {
-    const selectedServices = e.toLowerCase();
+    const selectedServices = e?.toLowerCase();
     router.push({
       pathname: selectedServices,
       query: {

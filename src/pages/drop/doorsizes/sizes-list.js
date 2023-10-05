@@ -6,6 +6,8 @@ import { useRouter } from "next/router";
 import { useAuth } from "@/context/AuthContext";
 import { useLocation } from "@/context/LocationContext";
 const SizesList = () => {
+  const router = useRouter();
+
   const [active, setActive] = useState(null);
   const { user } = useAuth();
   const { locData } = useLocation();
@@ -16,7 +18,6 @@ const SizesList = () => {
   const serviceFileName = serviceName?.toLowerCase();
 
   const navPage = (e) => {
-    const router = useRouter();
     router.push(
       {
         pathname: "/inputnumber",

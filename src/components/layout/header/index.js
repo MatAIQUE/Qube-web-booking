@@ -1,3 +1,4 @@
+import { useTransaction } from "@/context/TransactionContext";
 import Logo from "./logo";
 import Menu from "./menu";
 import { useAuth } from "@/context/AuthContext";
@@ -5,10 +6,17 @@ import { useRouter } from "next/router";
 
 const Layout = () => {
   const { user, logout } = useAuth();
+  const { transaction, isLoadingTrans } = useTransaction();
   const router = useRouter();
-
-  // Get the current URL
   const currentUrl = router.asPath;
+  const { setSelectedTrans } = useTransaction();
+
+  const handleQuickPin = (trans) => {
+    setSelectedTrans(JSON.stringify(trans));
+    router.push({
+      pathname: "/generate-view-qr",
+    });
+  };
 
   return (
     <>
@@ -17,10 +25,10 @@ const Layout = () => {
 
         {user ? (
           <>
-            <nav class='navbar navbar-expand-lg'>
-              <div class='container-fluid'>
+            <nav className='navbar navbar-expand-lg'>
+              <div className='container-fluid'>
                 <button
-                  class='navbar-toggler'
+                  className='navbar-toggler'
                   type='button'
                   data-bs-toggle='collapse'
                   data-bs-target='#navbarNavDarkDropdown'
@@ -28,16 +36,15 @@ const Layout = () => {
                   aria-expanded='false'
                   aria-label='Toggle navigation'
                 >
-                  <span class='navbar-toggler-icon'></span>
+                  <span className='navbar-toggler-icon'></span>
                 </button>
                 <div
-                  class='collapse navbar-collapse'
+                  className='collapse navbar-collapse'
                   id='navbarNavDarkDropdown'
                 >
-                  <ul class='navbar-nav'>
-                    <li class='nav-item dropdown'>
+                  <ul className='navbar-nav'>
+                    <li className='nav-item dropdown'>
                       <a
-                        class='nav-link dropdown-toggle'
                         href='#'
                         role='button'
                         data-bs-toggle='dropdown'
@@ -45,39 +52,31 @@ const Layout = () => {
                       >
                         Notification
                       </a>
-                      <ul class='dropdown-menu dropdown-menu'>
-                        <li>
-                          <a className='dropdown-item' href='#'>
-                            <span className='fw-bold small '>
-                              Your Quickpin for transaction 1000-1000-1000
-                            </span>
-                            <br />
-                            <span className='text-muted small'>
-                              your service has been placed in Main office
-                              locker.
-                            </span>
-                            <br />
-                            <span className='text-muted small'>
-                              Use this quickpin to claim your item.
-                            </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a className='dropdown-item' href='#'>
-                            <span className='fw-bold small '>
-                              Your Quickpin for transaction 1000-1000-1000
-                            </span>
-                            <br />
-                            <span className='text-muted small'>
-                              your service has been placed in Main office
-                              locker.
-                            </span>
-                            <br />
-                            <span className='text-muted small'>
-                              Use this quickpin to claim your item.
-                            </span>
-                          </a>
-                        </li>
+
+                      <ul className='dropdown-menu dropdown-menu'>
+                        {isLoadingTrans && "Loading Transaction ..."}
+                        {transaction.map((trans) => (
+                          <li key={trans._id}>
+                            <a
+                              onClick={(e) => handleQuickPin(trans)}
+                              className='dropdown-item'
+                              // href='/generate-view-qr'
+                            >
+                              <span className='fw-bold small '>
+                                Your Quickpin for transaction {trans.qpin}
+                              </span>
+                              <br />
+                              <span className='text-muted small'>
+                                your service has been placed in {trans.locName}
+                                <span> locker.</span>
+                              </span>
+                              <br />
+                              <span className='text-muted small'>
+                                Use this quickpin to claim your item.
+                              </span>
+                            </a>
+                          </li>
+                        ))}
                       </ul>
                     </li>
                   </ul>

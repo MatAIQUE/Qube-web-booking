@@ -1,16 +1,17 @@
 import axios from "axios";
-import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter } from "next/router";
 
 import { useLocation } from "@/context/LocationContext";
 import BannerText from "@/components/layout/banner/bannerText";
 import BannerLogo from "@/components/layout/banner/bannerLogo";
 import NotLogin from "@/components/layout/notLogin/NotLogin";
+import ServiceList from "./serviceList";
+import { useLoading } from "@/context/LoadingContext";
 
 const Services = () => {
   const router = useRouter();
-
+  const { isLoading, setIsLoading } = useLoading();
   const [service, setService] = useState([]);
   const [active, setActive] = useState(null);
 
@@ -49,6 +50,7 @@ const Services = () => {
 
           setService(filteredServices);
         });
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -79,51 +81,12 @@ const Services = () => {
           <div className='col-lg-7 right-panel'>
             <div className='row'>
               <div className='col-lg-12'>
-                <div>
-                  <ul className='container-fluid'>
-                    {service?.map((val) => (
-                      <li
-                        className={`row bg bg-white rounded align-items-center mb-2 border-shadow services ${
-                          active == val && "active"
-                        }`}
-                        key={val.serviceID}
-                        onMouseLeave={() => setActive(null)}
-                        onMouseEnter={() => setActive(val)}
-                        onClick={() => navPage(val.serviceType, val.serviceID)}
-                      >
-                        <div className='col-3 text-center'>
-                          <Image
-                            src={`https://qube-gateway.onrender.com/image/get/${val.serviceImage}`}
-                            className=''
-                            alt='Service Image'
-                            width={82}
-                            height={82}
-                          />
-                        </div>
-
-                        <div className='col-9'>
-                          <div className='row'>
-                            <div className='container'>
-                              <div className='row font-semibold mb-1'>
-                                <div className='col-12 fs-28 font-capitalize font-dark'>
-                                  {val.serviceType}
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className='container'>
-                              <div className='row'>
-                                <div className='col-12 fs-12'>
-                                  {val.serviceDesc}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ServiceList
+                  service={service}
+                  active={active}
+                  setActive={setActive}
+                  navPage={navPage}
+                />
               </div>
             </div>
           </div>

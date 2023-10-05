@@ -53,7 +53,7 @@ const InputNumber = () => {
     try {
       await axios
         .post(
-          `https://pandora-2-0-live.onrender.com/api/${serviceFileName}/post/trans`,
+          `https://pandora-2-0-test.onrender.com/api/${serviceFileName}/post/trans`,
           {
             booking_Origin: "2",
             mobileNumber: mobileNumber,
@@ -89,8 +89,8 @@ const InputNumber = () => {
       console.log(err);
     }
 
-    console.log("Door Size", doorSize);
-    console.log("Service", serviceName);
+    // console.log("Door Size", doorSize);
+    // console.log("Service", serviceName);
   };
 
   return (

@@ -14,7 +14,7 @@ export function AuthContextProvider({ children }) {
   const router = useRouter();
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
-  const previousRoute = getPreviousRoute();
+  const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
     // Check if user data exists in local storage on component mount
@@ -25,6 +25,7 @@ export function AuthContextProvider({ children }) {
   }, []);
 
   const login = async (mobile, mpin) => {
+    setIsLogin(true);
     try {
       const response = await axios.post(
         "https://pandora-2-0-live.onrender.com/api/mpin/web",
@@ -40,6 +41,7 @@ export function AuthContextProvider({ children }) {
       setUser(response.data);
       // console.log(previousRoute);
       // router.push(previousRoute);
+      setIsLogin(false);
       router.push({
         pathname: "/", // Redirect to the root route
       });
@@ -57,7 +59,9 @@ export function AuthContextProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, setUser, logout, login, error }}>
+    <AuthContext.Provider
+      value={{ user, setUser, logout, login, error, isLogin }}
+    >
       {children}
     </AuthContext.Provider>
   );

@@ -17,6 +17,7 @@ const GenerateQR = () => {
   const router = useRouter();
   let transNumber = router.query.transNumber;
   let qpin = router.query.qpin;
+  // let qpin = "asdfasdfasdf";
   let location = router.query.location;
   let serviceName = router.query.serviceName;
   let doorSize = router.query.doorSize;

@@ -8,12 +8,11 @@ import { TransactionContextProvider } from "@/context/TransactionContext";
 const Layout = ({ children }) => {
   return (
     <AuthContextProvider>
-      <div className='container'>
+      <div className='container pb-5'>
         <LoadingContextProvider>
           <TransactionContextProvider>
             <Head />
             <Header />
-            <Breadcrumb />
             <div>
               <LocationContextProvider>{children}</LocationContextProvider>
             </div>

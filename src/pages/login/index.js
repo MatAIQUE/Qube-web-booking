@@ -110,31 +110,35 @@ const LoginPage = () => {
               <div className='col-lg-12'>
                 <div className='row'>
                   <label>6-Digit MPIN</label>
-                  <input
-                    autoComplete='off'
-                    type='password'
-                    className='form-control fs-28 font-success height-66 text-center shadow-none'
-                    maxLength={6}
-                    onChange={(e) => setMpin(e.target.value)} // Update mpin state
-                    onKeyDown={onlyNumberInput}
-                    placeholder='MPIN'
-                    required
-                  />
+                  <div className="input-group mt-3">
+                    <input
+                      autoComplete='off'
+                      type='password'
+                      className='form-control fs-28 font-success height-66 text-center shadow-none'
+                      maxLength={6}
+                      onChange={(e) => setMpin(e.target.value)} // Update mpin state
+                      onKeyDown={onlyNumberInput}
+                      placeholder='MPIN'
+                      required
+                    />
+                  </div>
                 </div>
               </div>
             </div>
             <div className='row mt-3'>
               <div className='col-lg-12'>
                 <div className='row'>
-                  <Button
-                    content={global.config.globals.loginAccount}
-                    css={
-                      active
-                        ? "mt-3 col-lg-6 col-12 border border-success rounded bg-gradients py-3 px-3"
-                        : "opacity-50 pe-none mt-3 col-lg-6 col-12 border border-success rounded bg-gradients py-3 px-3"
-                    }
-                    onClick={handleSubmit}
-                  />
+                  <div className="input-group mt-3">
+                    <Button
+                      content={global.config.globals.loginAccount}
+                      css={
+                        active
+                          ? "mt-3 w-100 col-lg-6 col-12 border border-success rounded bg-gradients py-3 px-3"
+                          : "opacity-50 w-100 pe-none mt-3 col-lg-6 col-12 border border-success rounded bg-gradients py-3 px-3"
+                      }
+                      onClick={handleSubmit}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

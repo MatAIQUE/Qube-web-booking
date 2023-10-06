@@ -179,7 +179,7 @@ const InputNumber = () => {
             <div className='col-lg-12 pt-5'>
               <div className='container-fluid text-center w-100 align-self-center'>
                 <div>
-                  <span>OR LOGIN USING</span>
+                  <span> </span>
                 </div>
                 <SocialMedia />
               </div>

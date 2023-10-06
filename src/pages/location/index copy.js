@@ -83,7 +83,7 @@ const Location = () => {
                     <div className='row'>
                         <div className='col-lg-12 pt-5'>
                             <div className="container-fluid text-center w-100 align-self-center">
-                                <div><span>OR LOGIN USING</span></div>
+                                <div><span> </span></div>
                             <SocialMedia />
                             </div>
                         </div>
@@ -189,7 +189,7 @@ const Location = () => {
               <div className='col-lg-12 pt-5'>
                 <div className='container-fluid text-center w-100 align-self-center'>
                   <div>
-                    <span>OR LOGIN USING</span>
+                    <span> </span>
                   </div>
                   <SocialMedia />
                 </div>

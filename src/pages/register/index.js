@@ -101,41 +101,35 @@ const ProfileDefault = () => {
 
               <div className='row'>
                 <div className='col-lg-12'>
-                  <div>Email</div>
+                  <div className="mt-3">Email</div>
                   <Textbox
                     type='email'
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     maxLength='50'
                     placeholder='Please enter your email'
-                    css='fs-15 rounded border-dark font-dark col-md-6 height-66 text-left px-3'
+                    css='fs-15 w-100 rounded border-dark font-dark col-md-6 height-66 text-left px-3'
                   />
-                  <br />
-                  <br />
-                  <div>Name</div>
+                  <div className="mt-3">Name</div>
                   <Textbox
                     type='text'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     maxLength='30'
-                    placeholder='Please enter mobile your name'
-                    css='fs-15 rounded border-dark font-dark col-md-6 height-66 text-left px-3'
+                    placeholder='Please enter your name'
+                    css='fs-15 w-100 rounded border-dark font-dark col-md-6 height-66 text-left px-3'
                   />
-                  <br />
-                  <br />
-                  <div>Mobile No#</div>
+                  <div className="mt-3">Mobile number</div>
                   <Textbox
                     type='text'
                     value={mobile}
                     maxLength='11'
                     onChange={(e) => setMobile(e.target.value)}
-                    placeholder='Please enter mobile your no#'
-                    css='fs-15 rounded border-dark font-dark col-md-6 height-66 text-left px-3'
+                    placeholder='Please enter your mobile number'
+                    css='fs-15 w-100 rounded border-dark font-dark col-md-6 height-66 text-left px-3'
                   />
-                  <br />
-                  <br />
 
-                  <div>6-Digit MPIN</div>
+                  <div className="mt-3">6-Digit MPIN</div>
 
                   <Textbox
                     type='text'
@@ -143,7 +137,7 @@ const ProfileDefault = () => {
                     onChange={(e) => setMpin(e.target.value)}
                     maxLength='6'
                     placeholder='Please enter your 6-digit MPIN'
-                    css='fs-15 rounded border-dark font-dark col-md-6 height-66 text-left px-3'
+                    css='fs-15 w-100 rounded border-dark font-dark col-md-6 height-66 text-left px-3'
                   />
                 </div>
               </div>
@@ -154,8 +148,8 @@ const ProfileDefault = () => {
                     content={global.config.globals.loginAccount}
                     css={
                       active
-                        ? "mt-3 col-lg-6 col-12 border border-success rounded bg-gradients py-3 px-3"
-                        : "opacity-50 pe-none mt-3 col-lg-6 col-12 border border-success rounded bg-gradients py-3 px-3"
+                        ? "mt-3 col-lg-6 col-12 w-100 border border-success rounded bg-gradients py-3 px-3"
+                        : "opacity-50 pe-none mt-3 w-100 col-lg-6 col-12 border border-success rounded bg-gradients py-3 px-3"
                     }
                     onClick={handleCreateUser}
                   />

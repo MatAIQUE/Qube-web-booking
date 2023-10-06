@@ -3,7 +3,7 @@ import Image from 'next/image'
 const Logo = () => {
     return (
         
-        <div className="col-md-6 col-sm-6 me-lg-auto">
+        <div className="">
             <Image
             src={svgs.qubeLogo}
             alt=""

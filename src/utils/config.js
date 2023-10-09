@@ -10,6 +10,8 @@ module.exports = global.config = {
     locationBtnText: "Proceed",
     createAccount: "Create Account",
     loginAccount: "Login",
+    alreadyRegistered: "Already Registered",
+    incorrectMPIN: "Incorrect MPIN and Confirm MPIN",
   },
   breadcrumbs: {
     home: "Home",

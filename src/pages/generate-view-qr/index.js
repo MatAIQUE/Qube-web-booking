@@ -21,9 +21,12 @@ const GenerateViewQR = () => {
   const transaction = JSON.parse(selectedTrans);
 
   const goHome = () => {
-    router.push({
-      pathname: "/",
-    });
+    // Use router here within the client-side check
+    if (typeof window !== "undefined") {
+      router.push({
+        pathname: "/",
+      });
+    }
   };
 
   return (

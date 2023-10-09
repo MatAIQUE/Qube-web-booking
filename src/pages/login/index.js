@@ -10,23 +10,15 @@ import PHFlag from "../inputreceiver/flag";
 import { useLocation } from "@/context/LocationContext";
 
 const LoginPage = () => {
-  const { login, error } = useAuth();
+  const { login, error, mobile, mpin, setMobile, setMpin } = useAuth();
   const { setLocData } = useLocation();
-  const [mobile, setMobile] = useState("");
-  const [mpin, setMpin] = useState("");
   const [active, setActive] = useState("");
-  const [pointer, setPointer] = useState("");
 
   useEffect((e) => {
     if (mpin.length > 5 && mobile.length > 10) {
       setActive(true);
     } else {
       setActive(false);
-    }
-    if (mobile.length > 10) {
-      setPointer(false);
-    } else {
-      setPointer(true);
     }
   });
 
@@ -37,13 +29,9 @@ const LoginPage = () => {
     }
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    await login(mobile, mpin);
+  const handleSubmit = async () => {
     setLocData("");
-    setMobile("");
-    setMpin("");
+    await login(mobile, mpin);
   };
 
   return (
@@ -92,6 +80,7 @@ const LoginPage = () => {
                       </span>
                     </div>
                     <input
+                      value={mobile}
                       autoComplete='off'
                       type='text'
                       className='form-control fs-28 font-success height-66 text-center shadow-none'
@@ -110,8 +99,9 @@ const LoginPage = () => {
               <div className='col-lg-12'>
                 <div className='row'>
                   <label>6-Digit MPIN</label>
-                  <div className="input-group mt-3">
+                  <div className='input-group mt-3'>
                     <input
+                      value={mpin}
                       autoComplete='off'
                       type='password'
                       className='form-control fs-28 font-success height-66 text-center shadow-none'
@@ -128,7 +118,7 @@ const LoginPage = () => {
             <div className='row mt-3'>
               <div className='col-lg-12'>
                 <div className='row'>
-                  <div className="input-group mt-3">
+                  <div className='input-group mt-3'>
                     <Button
                       content={global.config.globals.loginAccount}
                       css={

@@ -1,8 +1,6 @@
-// authContext.js
 import { createContext, useContext, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import { getPreviousRoute } from "../utils/navigation";
 
 const AuthContext = createContext();
 
@@ -15,6 +13,8 @@ export function AuthContextProvider({ children }) {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
   const [isLogin, setIsLogin] = useState(false);
+  const [mobile, setMobile] = useState("");
+  const [mpin, setMpin] = useState("");
 
   useEffect(() => {
     // Check if user data exists in local storage on component mount
@@ -45,8 +45,13 @@ export function AuthContextProvider({ children }) {
       router.push({
         pathname: "/", // Redirect to the root route
       });
+      setMobile("");
+      setMpin("");
+      setError(null);
     } catch (error) {
       setError(error);
+      setMobile("");
+      setMpin("");
     }
   };
 
@@ -60,7 +65,18 @@ export function AuthContextProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, setUser, logout, login, error, isLogin }}
+      value={{
+        user,
+        setUser,
+        logout,
+        login,
+        error,
+        isLogin,
+        mobile,
+        mpin,
+        setMobile,
+        setMpin,
+      }}
     >
       {children}
     </AuthContext.Provider>

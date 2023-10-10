@@ -18,22 +18,23 @@ const SizesList = () => {
   const serviceFileName = serviceName?.toLowerCase();
 
   const navPage = (e) => {
-    router.push(
-      {
-        pathname: "/inputnumber",
-        query: {
-          booking_Origin: "2",
-          mobileNumber: mobileNumber,
-          doorSize: e,
-          moduleData: moduleData,
-          locData: locData,
-          serviceFileName: serviceFileName,
-          serviceName: serviceName,
+    if (typeof window !== "undefined") {
+      router.push(
+        {
+          pathname: "/inputnumber",
+          query: {
+            booking_Origin: "2",
+            mobileNumber: mobileNumber,
+            doorSize: e,
+            moduleData: moduleData,
+            locData: locData,
+            serviceFileName: serviceFileName,
+            serviceName: serviceName,
+          },
         },
-      },
-      "/inputnumber"
-    );
-    // console.log("Selected Door", e);
+        "/inputnumber"
+      );
+    }
   };
 
   const DropSelection = () => {

@@ -28,7 +28,7 @@ const TurnAroundTimeList = () => {
     const [tatID, tatTitle] = e;
     try {
       await axios
-        .post("https://pandora-2-0-test.onrender.com/api/wash/post/trans", {
+        .post("https://pandora-2-0-live.onrender.com/api/wash/post/trans", {
           booking_Origin: "2",
           mobileNumber: mobileNumber,
           locData: locData,

@@ -41,7 +41,7 @@ const GenerateViewQR = () => {
                 </div>
                 <BannerText
                   unboldChar='Your QR is ready!'
-                  boldChar={`Scan this to ${transaction.locName}'s QUBE Smart Locker`}
+                  boldChar={`Scan this to ${transaction?.locName}'s QUBE Smart Locker`}
                 />
               </div>
             </div>

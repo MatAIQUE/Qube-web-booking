@@ -74,9 +74,11 @@ const SizesList = () => {
   }
 
   if (!user) {
-    router.push({
-      pathname: "/login",
-    });
+    if (typeof window !== "undefined") {
+      router.push({
+        pathname: "/login",
+      });
+    }
   }
 };
 

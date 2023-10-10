@@ -54,7 +54,7 @@ const Location = () => {
         <div className='container-fluid'>
           <div className='row'>
             <div className='input-group mt-3 alert alert-success'>
-              <div className='col-8 my-auto font-semibold text-success'>
+              <div className='col-12 my-auto text-success'>
                 <label>Select your Location to start the transaction</label>
               </div>
             </div>

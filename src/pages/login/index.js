@@ -56,12 +56,12 @@ const LoginPage = () => {
           </div>
           <div className='col-lg-7 right-panel'>
             {error && (
-              <div className='row px-3 alert alert-danger'>
+              <div className='row'>
                 <div className='container-fluid'>
                   <div className='row'>
-                    <div className='col-8 my-auto font-semibold text-dark'>
-                      <label>{global.config.globals.invalidCredential}</label>
-                    </div>
+                  <div className="col-12 py-3 alert alert-danger font-semibold">
+                    {global.config.globals.invalidCredential}
+                  </div>
                   </div>
                 </div>
               </div>

@@ -1,5 +1,5 @@
 const Textbox = ({
-  css,
+  className,
   placeholder,
   onChange,
   maxLength,
@@ -15,7 +15,7 @@ const Textbox = ({
       maxLength={maxLength}
       onChange={onChange}
       placeholder={placeholder}
-      className={css}
+      className={className}
     />
   );
 };

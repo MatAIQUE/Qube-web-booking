@@ -138,20 +138,12 @@ const RegistrationPage = () => {
             {step === 1 && (
               <div className='row'>
                 {error && (
-                  <div className='row px-3 alert alert-danger'>
-                    <div className='container-fluid'>
-                      <div className='row'>
-                        <div className='col-8 my-auto font-semibold text-dark'>
-                          <label>
-                            {global.config.globals.alreadyRegistered}
-                          </label>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="col-12 py-3 alert alert-danger font-semibold">
+                    {global.config.globals.alreadyRegistered}
                   </div>
                 )}
 
-                <div className='row'>
+                <div className='col-lg-12'>
                   <div className='mt-3'>Enter Mobile number</div>
                   <div className='input-group mt-3'>
                     <div className='input-group-prepend'>
@@ -182,66 +174,76 @@ const RegistrationPage = () => {
 
             {step === 2 && (
               <div className='row'>
-                <div className='mt-3'>Enter 6-Digit MPIN</div>
-                <Textbox
-                  onKeyDown={onlyNumberInput}
-                  type='password'
-                  value={mpin}
-                  onChange={(e) => setMpin(e.target.value)}
-                  maxLength='6'
-                  placeholder='Please enter your 6-digit MPIN'
-                  css='fs-15 w-100 rounded border-dark font-dark col-md-6 height-66 text-left px-3'
-                />
+                <label className="mt-3">Create 6-digit PIN</label>
+                <div className="input-group mt-3">
+                  <Textbox
+                    className='form-control fs-28 font-success height-66 text-center shadow-none'
+                    onKeyDown={onlyNumberInput}
+                    type='password'
+                    value={mpin}
+                    onChange={(e) => setMpin(e.target.value)}
+                    maxLength='6'
+                    placeholder='Please enter your 6-digit MPIN'
+                    css=''
+                  />
+                </div>
 
-                <div className='mt-3'>Confirm 6-Digit MPIN</div>
-
-                <Textbox
-                  onKeyDown={onlyNumberInput}
-                  type='password'
-                  value={confirmMpin}
-                  onChange={handleConfirmMpinChange}
-                  maxLength='6'
-                  placeholder='Please enter confirm 6-digit MPIN'
-                  css='fs-15 w-100 rounded border-dark font-dark col-md-6 height-66 text-left px-3'
-                />
+                <label className="mt-3">Confirm 6-digit PIN</label>
+                <div className="input-group mt-3">
+                  <Textbox
+                    className='form-control fs-28 font-success height-66 text-center shadow-none'
+                    onKeyDown={onlyNumberInput}
+                    type='password'
+                    value={confirmMpin}
+                    onChange={handleConfirmMpinChange}
+                    maxLength='6'
+                    placeholder='Please enter confirm 6-digit MPIN'
+                    css=''
+                  />
+                </div>
               </div>
             )}
 
             {step === 3 && (
               <div className='row'>
                 <div className='mt-3'>Email</div>
-                <Textbox
-                  type='email'
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  maxLength='50'
-                  placeholder='Please enter your email'
-                  css='fs-15 w-100 rounded border-dark font-dark col-md-6 height-66 text-left px-3'
-                />
+                <div className="input-group mt-3">
+                  <Textbox
+                    type='email'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    maxLength='50'
+                    placeholder='Please enter your email'
+                    className='form-control fs-28 font-success height-66 text-center shadow-none'
+                    />
+                </div>
                 <div className='mt-3'>Name</div>
-                <Textbox
-                  type='text'
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  maxLength='30'
-                  placeholder='Please enter your name'
-                  css='fs-15 w-100 rounded border-dark font-dark col-md-6 height-66 text-left px-3'
-                />
+                <div className="input-group mt-3">
+                  <Textbox
+                    type='text'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    maxLength='30'
+                    placeholder='Please enter your name'
+                    className='form-control fs-28 font-success height-66 text-center shadow-none'
+                    />
+                </div>
               </div>
             )}
 
             {step === 4 && (
               <div className='row'>
                 <div className='mt-3'>Enter the OTP that you received</div>
-
-                <Textbox
-                  type='text'
-                  value={otp}
-                  onChange={(e) => setOtp(e.target.value)}
-                  maxLength='6'
-                  placeholder='Please enter your otp'
-                  css='fs-15 w-100 rounded border-dark font-dark col-md-6 height-66 text-left px-3'
-                />
+                <div className="input-group mt-3">
+                  <Textbox
+                    type='text'
+                    value={otp}
+                    onChange={(e) => setOtp(e.target.value)}
+                    maxLength='6'
+                    placeholder='Please enter your otp'
+                    className='form-control fs-28 font-success height-66 text-center shadow-none'
+                    />
+                </div>
               </div>
             )}
 

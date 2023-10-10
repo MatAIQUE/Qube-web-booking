@@ -7,22 +7,25 @@ const HomePageWrap = () => {
   return (
     <>
       <div className='container-fluid pt-5'>
+        
+        {/* LEFT PANEL */}
+        {/* implement this to all pages */}
         <div className='row'>
-          <div className='col-lg-5 left-panel align-self-center'>
+          <div className='col-12 col-md-6 left-panel align-self-center'>
             <div className='row'>
-              <div className='col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6'>
+              <div className='col-7 col-md-12'>
                 <NotLogin />
                 <BannerText
                   unboldChar='Discover the power of'
                   boldChar='SMARTLOCKERS'
                 />
               </div>
-              <div className='col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6'>
+              <div className='col-5 col-md-12'>
                 <BannerLogo />
               </div>
             </div>
           </div>
-          <div className='col-lg-7 right-panel'>
+          <div className='col-12 col-md-6 right-panel'>
             <div className='row'>
               <div className='col-lg-12'>
                 <LocationLocker />
@@ -30,6 +33,10 @@ const HomePageWrap = () => {
             </div>
           </div>
         </div>
+        {/* end of left panel */}
+
+
+
       </div>
     </>
   );

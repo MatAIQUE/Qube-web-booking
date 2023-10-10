@@ -26,7 +26,7 @@ export function TransactionContextProvider({ children }) {
 
       try {
         const response = await axios.get(
-          `https://pandora-2-0-test.onrender.com/api/getAll/trans/user/${mobileNumber}`
+          `https://pandora-2-0-live.onrender.com/api/getAll/trans/user/${mobileNumber}`
         );
 
         setTransaction(response.data);

@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useLoading } from "@/context/LoadingContext.jsx";
 import { useLocation } from "@/context/LocationContext";
 import { useTransaction } from "@/context/TransactionContext";
+import LeftPanel from "@/components/layout/leftPanel";
 
 const GenerateViewQR = () => {
   const { setIsLoading } = useLoading();
@@ -32,24 +33,10 @@ const GenerateViewQR = () => {
   return (
     <div className='container-fluid pt-5'>
       <div className='row'>
-        <div className='col-lg-6 left-panel mx-auto p-3'>
-          <div className='row  p-lg-5 m-lg-auto'>
-            <div className='mx-auto col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6'>
-              <div className='w-100'>
-                <div className='text-danger pb-3'>
-                  {global.config.globals.loggedOutText}
-                </div>
-                <BannerText
-                  unboldChar='Your QR is ready!'
-                  boldChar={`Scan this to ${transaction?.locName}'s QUBE Smart Locker`}
-                />
-              </div>
-            </div>
-            <div className='col-xl-8 col-lg-8 col-md-12 col-sm-6 col-6'>
-              <BannerLogo />
-            </div>
-          </div>
-        </div>
+        <LeftPanel
+          title='Your QR is ready!'
+          description={`Scan this to ${transaction?.locName}'s QUBE Smart Locker`}
+        />
 
         <div className='col-lg-6 right-panel mx-auto alert alert-success p-lg-5'>
           <div className='row mx-auto w-100'>
@@ -85,19 +72,12 @@ const GenerateViewQR = () => {
               </div>
             </div>
           </div>
-          <div className='row px-lg-0 px-sm-3 px-4'>
-            <button className='mt-3 border border-dark text-dark rounded bg-light py-3'>
-              {" "}
-              Add new transaction
-            </button>
-          </div>
-          <div className='row px-lg-0 px-sm-3 px-4 mb-lg-0 mb-3'>
+          <div className='row px-lg-0 px-sm-3 mt-5 px-4 mb-lg-0 mb-3'>
             <button
               onClick={goHome}
               className='mt-3 border border-success rounded bg-gradients py-3'
             >
-              {" "}
-              Home
+              Go to Home
             </button>
           </div>
         </div>

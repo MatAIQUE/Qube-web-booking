@@ -12,6 +12,7 @@ import bounceLoader from "../../assets/lottie/bounceLoader";
 import PHFlag from "./flag";
 import { useLoading } from "@/context/LoadingContext";
 import axios from "axios";
+import LeftPanel from "@/components/layout/leftPanel";
 
 const InputNumber = () => {
   const { user } = useAuth();
@@ -96,24 +97,7 @@ const InputNumber = () => {
   return (
     <div className='container-fluid pt-5'>
       <div className='row'>
-        <div className='col-lg-6 left-panel mx-auto p-3'>
-          <div className='row p-lg-5 m-lg-auto'>
-            <div className='mx-auto col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6'>
-              <div className='w-100'>
-                <div className='text-danger pb-3'>
-                  {global.config.globals.loggedOutText}
-                </div>
-                <BannerText
-                  unboldChar='Please enter your'
-                  boldChar='Contact number'
-                />
-              </div>
-            </div>
-            <div className='col-xl-8 col-lg-8 col-md-12 col-sm-6 col-6'>
-              <BannerLogo />
-            </div>
-          </div>
-        </div>
+        <LeftPanel title='Please enter your' description='Recipient Number' />
 
         <div className='col-lg-6 right-panel'>
           <div className='row mt-3'>

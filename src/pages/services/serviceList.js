@@ -9,6 +9,10 @@ const ServiceList = ({ service, active, setActive, navPage }) => {
         return svgs.dropSvg;
       case "Food":
         return svgs.foodSvg;
+      case "Keep":
+        return svgs.keepSvg;
+      case "Pay":
+        return svgs.keepSvg;
       default:
         return null; // Handle other cases if needed
     }
@@ -23,12 +27,11 @@ const ServiceList = ({ service, active, setActive, navPage }) => {
           key={val.serviceID}
           onMouseLeave={() => setActive(null)}
           onMouseEnter={() => setActive(val)}
-          onClick={() => navPage(val.serviceType, val.serviceID)}
+          onClick={() => navPage(val?.serviceType, val?.serviceID)}
         >
           <div className='col-3 text-center'>
             <Image
-              src={getServiceImage(val.serviceType)}
-              className=''
+              src={getServiceImage(val?.serviceType)}
               alt='Service Image'
               width={82}
               height={82}
@@ -40,14 +43,14 @@ const ServiceList = ({ service, active, setActive, navPage }) => {
               <div className='container'>
                 <div className='row font-semibold mb-1'>
                   <div className='col-12 fs-28 font-capitalize font-dark'>
-                    {val.serviceType}
+                    {val?.serviceType}
                   </div>
                 </div>
               </div>
 
               <div className='container'>
                 <div className='row'>
-                  <div className='col-12 fs-12'>{val.serviceDesc}</div>
+                  <div className='col-12 fs-12'>{val?.serviceDesc}</div>
                 </div>
               </div>
             </div>

@@ -3,11 +3,11 @@ import { useState, useEffect, Suspense } from "react";
 import { useRouter } from "next/router";
 
 import { useLocation } from "@/context/LocationContext";
-import BannerText from "@/components/layout/banner/bannerText";
-import BannerLogo from "@/components/layout/banner/bannerLogo";
-import NotLogin from "@/components/layout/notLogin/NotLogin";
 import ServiceList from "./serviceList";
 import { useLoading } from "@/context/LoadingContext";
+import Lottie from "lottie-react";
+import bounceLoader from "../../assets/lottie/bounceLoader";
+import LeftPanel from "@/components/layout/leftPanel";
 
 const Services = () => {
   const router = useRouter();
@@ -36,9 +36,10 @@ const Services = () => {
     }
   });
 
-  const getServices = () => {
+  const getServices = async () => {
     try {
-      axios
+      setIsLoading(true);
+      await axios
         .get(
           `https://pandora-2-0-live.onrender.com/api/get/location/${locData}`
         )
@@ -53,8 +54,11 @@ const Services = () => {
       setIsLoading(false);
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
   };
+
+  // console.log(service);
 
   useEffect(() => {
     getServices();
@@ -64,29 +68,27 @@ const Services = () => {
     <>
       <div className='container-fluid pt-5'>
         <div className='row'>
-          <div className='col-lg-5 left-panel align-self-center'>
-            <div className='row'>
-              <div className='col-xl-12 my-auto col-lg-12 col-md-12 col-sm-6 col-6'>
-                <NotLogin />
-                <BannerText
-                  unboldChar='Discover the power of'
-                  boldChar='SMARTLOCKERS'
-                />
-              </div>
-              <div className='col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6'>
-                <BannerLogo />
-              </div>
-            </div>
-          </div>
-          <div className='col-lg-7 right-panel'>
+          <LeftPanel
+            title='Select the Services of  '
+            description='SMARTLOCKERS'
+          />
+          <div className='col-lg-6 right-panel'>
             <div className='row'>
               <div className='col-lg-12'>
-                <ServiceList
-                  service={service}
-                  active={active}
-                  setActive={setActive}
-                  navPage={navPage}
-                />
+                {isLoading ? (
+                  <Lottie
+                    animationData={bounceLoader}
+                    loop={true}
+                    className='w-30'
+                  />
+                ) : (
+                  <ServiceList
+                    service={service}
+                    active={active}
+                    setActive={setActive}
+                    navPage={navPage}
+                  />
+                )}
               </div>
             </div>
           </div>

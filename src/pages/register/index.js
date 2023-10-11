@@ -9,6 +9,7 @@ import Button from "@/components/layout/buttons/create";
 import Textbox from "@/components/layout/textbox";
 import ProtectedRoute from "@/components/layout/protectedRoute/ProtectedRoute";
 import PHFlag from "../inputnumber/flag";
+import LeftPanel from "@/components/layout/leftPanel";
 const RegistrationPage = () => {
   const router = useRouter();
 
@@ -117,28 +118,12 @@ const RegistrationPage = () => {
     <ProtectedRoute>
       <div className='container-fluid pt-5'>
         <div className='row'>
-          <div className='col-lg-6 left-panel align-self-center'>
-            <div className='row'>
-              <div className='col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6'>
-                <div className='text-danger pb-3'>
-                  {global.config.globals.loggedOutText}
-                </div>
-                <BannerText
-                  unboldChar='Please enter your'
-                  boldChar='Mobile number & MPIN'
-                />
-              </div>
-              <div className='col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6'>
-                <BannerLogo />
-              </div>
-            </div>
-          </div>
-
-          <div className='col-lg-6 right-panel'>
+          <LeftPanel description='SMARTLOCKERS' title='Register your account' />
+          <div className='col-12 col-md-6 right-panel'>
             {step === 1 && (
               <div className='row'>
                 {error && (
-                  <div className="col-12 py-3 alert alert-danger font-semibold">
+                  <div className='col-12 py-3 alert alert-danger font-semibold'>
                     {global.config.globals.alreadyRegistered}
                   </div>
                 )}
@@ -174,8 +159,8 @@ const RegistrationPage = () => {
 
             {step === 2 && (
               <div className='row'>
-                <label className="mt-3">Create 6-digit PIN</label>
-                <div className="input-group mt-3">
+                <label className='mt-3'>Create 6-digit PIN</label>
+                <div className='input-group mt-3'>
                   <Textbox
                     className='form-control fs-28 font-success height-66 text-center shadow-none'
                     onKeyDown={onlyNumberInput}
@@ -188,8 +173,8 @@ const RegistrationPage = () => {
                   />
                 </div>
 
-                <label className="mt-3">Confirm 6-digit PIN</label>
-                <div className="input-group mt-3">
+                <label className='mt-3'>Confirm 6-digit PIN</label>
+                <div className='input-group mt-3'>
                   <Textbox
                     className='form-control fs-28 font-success height-66 text-center shadow-none'
                     onKeyDown={onlyNumberInput}
@@ -207,7 +192,7 @@ const RegistrationPage = () => {
             {step === 3 && (
               <div className='row'>
                 <div className='mt-3'>Email</div>
-                <div className="input-group mt-3">
+                <div className='input-group mt-3'>
                   <Textbox
                     type='email'
                     value={email}
@@ -215,10 +200,10 @@ const RegistrationPage = () => {
                     maxLength='50'
                     placeholder='Please enter your email'
                     className='form-control fs-28 font-success height-66 text-center shadow-none'
-                    />
+                  />
                 </div>
                 <div className='mt-3'>Name</div>
-                <div className="input-group mt-3">
+                <div className='input-group mt-3'>
                   <Textbox
                     type='text'
                     value={name}
@@ -226,7 +211,7 @@ const RegistrationPage = () => {
                     maxLength='30'
                     placeholder='Please enter your name'
                     className='form-control fs-28 font-success height-66 text-center shadow-none'
-                    />
+                  />
                 </div>
               </div>
             )}
@@ -234,7 +219,7 @@ const RegistrationPage = () => {
             {step === 4 && (
               <div className='row'>
                 <div className='mt-3'>Enter the OTP that you received</div>
-                <div className="input-group mt-3">
+                <div className='input-group mt-3'>
                   <Textbox
                     type='text'
                     value={otp}
@@ -242,7 +227,7 @@ const RegistrationPage = () => {
                     maxLength='6'
                     placeholder='Please enter your otp'
                     className='form-control fs-28 font-success height-66 text-center shadow-none'
-                    />
+                  />
                 </div>
               </div>
             )}

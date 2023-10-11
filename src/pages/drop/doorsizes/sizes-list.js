@@ -7,7 +7,6 @@ import { useAuth } from "@/context/AuthContext";
 import { useLocation } from "@/context/LocationContext";
 const SizesList = () => {
   const router = useRouter();
-
   const [active, setActive] = useState(null);
   const { user } = useAuth();
   const { locData } = useLocation();

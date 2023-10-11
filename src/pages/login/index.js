@@ -8,6 +8,7 @@ import BannerText from "@/components/layout/banner/bannerText";
 import Button from "@/components/layout/buttons/create";
 import PHFlag from "../inputreceiver/flag";
 import { useLocation } from "@/context/LocationContext";
+import LeftPanel from "@/components/layout/leftPanel";
 
 const LoginPage = () => {
   const { login, error, mobile, mpin, setMobile, setMpin } = useAuth();
@@ -38,30 +39,18 @@ const LoginPage = () => {
     <ProtectedRoute>
       <div className='container-fluid pt-5'>
         <div className='row'>
-          <div className='col-lg-5 left-panel align-self-center'>
-            <div className='row'>
-              <div className='col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6'>
-                <div className='text-danger pb-3'>
-                  {global.config.globals.loggedOutText}
-                </div>
-                <BannerText
-                  unboldChar='Please enter your'
-                  boldChar='Mobile number & MPIN'
-                />
-              </div>
-              <div className='col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6'>
-                <BannerLogo />
-              </div>
-            </div>
-          </div>
-          <div className='col-lg-7 right-panel'>
+          <LeftPanel
+            description='Mobile number & MPIN'
+            title='Please enter your'
+          />
+          <div className='col-12 col-md-6 right-panel'>
             {error && (
               <div className='row'>
                 <div className='container-fluid'>
                   <div className='row'>
-                  <div className="col-12 py-3 alert alert-danger font-semibold">
-                    {global.config.globals.invalidCredential}
-                  </div>
+                    <div className='col-12 py-3 alert alert-danger font-semibold'>
+                      {global.config.globals.invalidCredential}
+                    </div>
                   </div>
                 </div>
               </div>

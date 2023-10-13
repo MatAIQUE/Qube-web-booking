@@ -1,30 +1,30 @@
 @font-face {
   font-family: Rubik-Regular;
-  src: url('../assets/fonts/rubik/Rubik-Regular.ttf');
+  src: url("../assets/fonts/rubik/Rubik-Regular.ttf");
 }
 @font-face {
   font-family: Rubik-Bold;
-  src: url('../assets/fonts/rubik/Rubik-Bold.ttf');
+  src: url("../assets/fonts/rubik/Rubik-Bold.ttf");
 }
 @font-face {
   font-family: Rubik-Black;
-  src: url('../assets/fonts/rubik/Rubik-Black.ttf');
+  src: url("../assets/fonts/rubik/Rubik-Black.ttf");
 }
 @font-face {
   font-family: Rubik-Light;
-  src: url('../assets/fonts/rubik/Rubik-Light.ttf');
+  src: url("../assets/fonts/rubik/Rubik-Light.ttf");
 }
 @font-face {
   font-family: Rubik-Medium;
-  src: url('../assets/fonts/rubik/Rubik-Medium.ttf');
+  src: url("../assets/fonts/rubik/Rubik-Medium.ttf");
 }
 
 @font-face {
   font-family: Rubik-SemiBold;
-  src: url('../assets/fonts/rubik/Rubik-SemiBold.ttf');
+  src: url("../assets/fonts/rubik/Rubik-SemiBold.ttf");
 }
 .w-30 {
-  width: 30%!important;
+  width: 30% !important;
 }
 
 .tawkr {
@@ -46,7 +46,7 @@ select {
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: 'Rubik-Regular';
+  --font-mono: "Rubik-Regular";
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -130,7 +130,7 @@ body {
 
 body {
   height: 100vh;
-  font-family: 'Rubik-Regular' !important;
+  font-family: "Rubik-Regular" !important;
   color: rgb(var(--foreground-rgb));
   background: #f9f9f9 !important;
 }
@@ -140,35 +140,40 @@ a {
   text-decoration: none;
 }
 
-ul, li {
+ul,
+li {
   padding: 0 !important;
   list-style: none;
 }
 .font-success {
-  color: #16D391 !important;
+  color: #16d391 !important;
 }
 
 .font-dark {
   color: #333333;
-} 
+}
 
- .bg-gradients{
-  background-image: linear-gradient(180deg, #50BA84 0%, #15ABD0 100%) !important;
+.bg-gradients {
+  background-image: linear-gradient(
+    180deg,
+    #50ba84 0%,
+    #15abd0 100%
+  ) !important;
   color: #fff;
 }
 .rounded.border-success {
-  border: 1px #16D391 solid !important;
+  border: 1px #16d391 solid !important;
 }
 
 .font-semibold {
-  font-family: 'Rubik-SemiBold';
+  font-family: "Rubik-SemiBold";
 }
 
 .font-regular {
-  font-family: 'Rubik-Regular';
+  font-family: "Rubik-Regular";
 }
 .font-light {
-  font-family: 'Rubik-Light';
+  font-family: "Rubik-Light";
 }
 
 .fs-12 {
@@ -209,15 +214,23 @@ ul, li {
   text-align: left;
 }
 
-input, select {
+input,
+select {
   background: #ffffff;
   border: border 1px solid !important;
 }
 
-input:active, input:hover, input:focus, input:focus-visible, select:active, select:hover, select:focus, select:focus-visible {
+input:active,
+input:hover,
+input:focus,
+input:focus-visible,
+select:active,
+select:hover,
+select:focus,
+select:focus-visible {
   border: 1px solid #16d391 !important;
   opacity: 1 !important;
-  color: #16d391!important; 
+  color: #16d391 !important;
 }
 
 option {
@@ -231,13 +244,13 @@ option {
 
 .services.active {
   /* background-color: #16D391 !important; */
-  background:linear-gradient(to right, #50ba84 , #15abd0);
+  background: linear-gradient(to right, #50ba84, #15abd0);
   color: #fff !important;
 }
-.services.active h2{
+.services.active h2 {
   color: #fff !important;
 }
-.services.active .fs-12{
+.services.active .fs-12 {
   opacity: 1 !important;
 }
 .services.services.active .fs-28 {
@@ -245,7 +258,7 @@ option {
 }
 .rounded.border-success:hover {
   /* background: #16D391 !important; */
-  background:linear-gradient(to right, #50ba84 , #15abd0);
+  background: linear-gradient(to right, #50ba84, #15abd0);
   color: #fff !important;
 }
 
@@ -255,7 +268,7 @@ option {
 
 /* social media icons */
 .bg-fb {
-  background-color: #1877F2;
+  background-color: #1877f2;
 }
 @media (prefers-color-scheme: dark) {
   html {
@@ -264,18 +277,35 @@ option {
 }
 
 .append-span {
-  border-radius: .375rem 0 0 .375rem !important;
+  border-radius: 0.375rem 0 0 0.375rem !important;
 }
 
-input:focus, input:focus-visible {
+input:focus,
+input:focus-visible {
   outline: none !important;
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-    .row .left-panel {
-      width: 40%;
-    }
-    .row .right-panel {
-      width: 60%;
-    }
- }
+  .row .left-panel {
+    width: 40%;
+  }
+  .row .right-panel {
+    width: 60%;
+  }
+}
+
+/*** SKELETEON CSS ***/
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animated-fade {
+  animation: fadeIn 2s ease-in infinite;
+  animation-fill-mode: both;
+}

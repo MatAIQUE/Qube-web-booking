@@ -5,9 +5,8 @@ import { useRouter } from "next/router";
 import { useLocation } from "@/context/LocationContext";
 import ServiceList from "./serviceList";
 import { useLoading } from "@/context/LoadingContext";
-import Lottie from "lottie-react";
-import bounceLoader from "../../assets/lottie/bounceLoader";
 import LeftPanel from "@/components/layout/leftPanel";
+import ServiceSkeleton from "@/components/layout/skeleton/serviceSkeleton";
 
 const Services = () => {
   const router = useRouter();
@@ -37,28 +36,28 @@ const Services = () => {
   });
 
   const getServices = async () => {
-    try {
-      setIsLoading(true);
-      await axios
-        .get(
-          `https://pandora-2-0-live.onrender.com/api/get/location/${locData}`
-        )
-        .then((res) => {
-          const result = res.data[0].service;
-          const filteredServices = result?.filter(
-            (service) => service.serviceStatus === "1"
-          );
+    setIsLoading(true);
+    setTimeout(async () => {
+      try {
+        await axios
+          .get(
+            `https://pandora-2-0-live.onrender.com/api/get/location/${locData}`
+          )
+          .then((res) => {
+            const result = res.data[0].service;
+            const filteredServices = result?.filter(
+              (service) => service.serviceStatus === "1"
+            );
 
-          setService(filteredServices);
-        });
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error);
-      setIsLoading(false);
-    }
+            setService(filteredServices);
+          });
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+        setIsLoading(false);
+      }
+    }, 5000);
   };
-
-  // console.log(service);
 
   useEffect(() => {
     getServices();
@@ -76,11 +75,7 @@ const Services = () => {
             <div className='row'>
               <div className='col-lg-12'>
                 {isLoading ? (
-                  <Lottie
-                    animationData={bounceLoader}
-                    loop={true}
-                    className='w-30'
-                  />
+                  <ServiceSkeleton />
                 ) : (
                   <ServiceList
                     service={service}

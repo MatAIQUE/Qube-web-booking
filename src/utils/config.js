@@ -10,7 +10,7 @@ module.exports = global.config = {
     locationBtnText: "Proceed",
     createAccount: "Create Account",
     loginAccount: "Login",
-    alreadyRegistered: "Already Registered",
+    alreadyRegistered: "Mobile number is already registered.",
     incorrectMPIN: "Incorrect MPIN and Confirm MPIN",
   },
   breadcrumbs: {

@@ -1,10 +1,25 @@
-import NotLogin from "@/components/layout/notLogin/NotLogin";
-import BannerLogo from "../../components/layout/banner/bannerLogo";
-import BannerText from "../../components/layout/banner/bannerText";
 import LocationLocker from "../location";
 import LeftPanel from "@/components/layout/leftPanel";
+import { useAuth } from "@/context/AuthContext";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const HomePageWrap = () => {
+  const { user } = useAuth();
+  const router = useRouter();
+
+  const isAuthenticated = user;
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      router.push("/login");
+    }
+  }, [isAuthenticated, router]);
+
+  if (!isAuthenticated) {
+    return null;
+  }
+
   return (
     <>
       <div className='container-fluid pt-5'>

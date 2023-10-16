@@ -3,8 +3,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-import BannerLogo from "@/components/layout/banner/bannerLogo";
-import BannerText from "@/components/layout/banner/bannerText";
 import Button from "@/components/layout/buttons/create";
 import Textbox from "@/components/layout/textbox";
 import ProtectedRoute from "@/components/layout/protectedRoute/ProtectedRoute";
@@ -23,26 +21,34 @@ const RegistrationPage = () => {
   const [otp, setOtp] = useState("");
   const [active, setActive] = useState(false);
   const [error, setError] = useState(false);
+  const [errMpin, setErrMpin] = useState(false);
+  const [errOTP, setErrOTP] = useState(null);
 
   useEffect(
     (e) => {
       if (step === 1) {
-        if (mobileNumber && mobileNumber.length > 10) {
-          setActive(!active);
+        if (
+          name &&
+          email &&
+          mobileNumber.length > 10 &&
+          mpin.length > 5 &&
+          confirmMpin > 5
+        ) {
+          setActive(true);
         } else {
           setActive(false);
         }
       }
 
       if (step === 2) {
-        if (mpin.length > 5 && confirmMpin > 5 && mpinMatch) {
+        if (otp.length > 5) {
           setActive(true);
         } else {
           setActive(false);
         }
       }
     },
-    [mobileNumber, mpin, confirmMpin, mpinMatch]
+    [name, email, otp, mobileNumber, mpin, confirmMpin, mpinMatch]
   );
 
   function onlyNumberInput() {
@@ -54,34 +60,31 @@ const RegistrationPage = () => {
 
   const handleNextStep = async () => {
     if (step === 1) {
-      if (!mobileNumber) {
-        alert("Please enter valid mobile number");
-      }
+      if (mpinMatch) {
+        try {
+          await axios
+            .post("https://pandora-2-0-live.onrender.com/api/signup/web", {
+              mobileNumber,
+            })
+            .then((response) => {
+              setStep(2);
+            });
+        } catch (error) {
+          // console.error("Error sending otp", error);
+          setError(true);
+          setMpin("");
+          setConfirmMpin("");
+        }
 
-      try {
-        await axios
-          .post("https://pandora-2-0-live.onrender.com/api/signup/web", {
-            mobileNumber,
-          })
-          .then((response) => {
-            setStep(2);
-          });
-      } catch (error) {
-        console.error("Error sending otp", error);
-        setError(error);
+        setErrMpin(false);
+      } else {
+        setErrMpin(true);
+        setMpin("");
+        setConfirmMpin("");
       }
 
       setActive(false);
     } else if (step === 2) {
-      setStep(3);
-    } else if (step === 3) {
-      if (name && email) {
-        // You can also add additional validation if needed
-        setStep(4); // Move to the final step
-      } else {
-        alert("Please enter your name and email.");
-      }
-    } else if (step === 4) {
       try {
         await axios
           .post("https://pandora-2-0-live.onrender.com/api/verify/web", {
@@ -100,10 +103,12 @@ const RegistrationPage = () => {
             setName("");
             setStep(1);
 
-            console.log(response);
+            // console.log(response);
           });
       } catch (error) {
         console.error("Error verify otp:", error);
+
+        setErrOTP(error);
       }
     }
   };
@@ -118,18 +123,50 @@ const RegistrationPage = () => {
     <ProtectedRoute>
       <div className='container-fluid pt-5'>
         <div className='row'>
-          <LeftPanel description='SMARTLOCKERS' title='Register your account' />
+          <LeftPanel
+            description='SMARTLOCKERS'
+            title='Register your account and Verify OTP'
+          />
           <div className='col-12 col-md-6 right-panel'>
             {step === 1 && (
               <div className='row'>
                 {error && (
-                  <div className='col-12 py-3 alert alert-danger font-semibold'>
-                    {global.config.globals.alreadyRegistered}
+                  <div class='alert alert-warning' role='alert'>
+                    <strong>{global.config.globals.alreadyRegistered}</strong>
+                  </div>
+                )}
+
+                {errMpin && (
+                  <div class='alert alert-warning' role='alert'>
+                    <strong>MPIN does not match</strong>
                   </div>
                 )}
 
                 <div className='col-lg-12'>
-                  <div className='mt-3'>Enter Mobile number</div>
+                  <div className=''>Name</div>
+                  <div className='input-group mt-3'>
+                    <Textbox
+                      type='text'
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      maxLength='30'
+                      placeholder='Please enter your name'
+                      className='form-control fs-28 font-success height-66 text-center shadow-none'
+                    />
+                  </div>
+                  <div className='mt-3'>Email</div>
+                  <div className='input-group mt-3'>
+                    <Textbox
+                      type='email'
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      maxLength='50'
+                      placeholder='Please enter your email'
+                      className='form-control fs-28 font-success height-66 text-center shadow-none'
+                    />
+                  </div>
+
+                  <div className='mt-3'>Mobile number</div>
                   <div className='input-group mt-3'>
                     <div className='input-group-prepend'>
                       <span
@@ -153,73 +190,48 @@ const RegistrationPage = () => {
                       required
                     />
                   </div>
+
+                  <label className='mt-3'>Create 6-digit PIN</label>
+                  <div className='input-group mt-3'>
+                    <Textbox
+                      className='form-control fs-28 font-success height-66 text-center shadow-none'
+                      onKeyDown={onlyNumberInput}
+                      type='password'
+                      value={mpin}
+                      onChange={(e) => setMpin(e.target.value)}
+                      maxLength='6'
+                      placeholder='Please enter your 6-digit MPIN'
+                      css=''
+                    />
+                  </div>
+
+                  <label className='mt-3'>Confirm 6-digit PIN</label>
+                  <div className='input-group mt-3'>
+                    <Textbox
+                      className='form-control fs-28 font-success height-66 text-center shadow-none'
+                      onKeyDown={onlyNumberInput}
+                      type='password'
+                      value={confirmMpin}
+                      onChange={handleConfirmMpinChange}
+                      maxLength='6'
+                      placeholder='Please enter confirm 6-digit MPIN'
+                      css=''
+                    />
+                  </div>
                 </div>
               </div>
             )}
 
             {step === 2 && (
               <div className='row'>
-                <label className='mt-3'>Create 6-digit PIN</label>
-                <div className='input-group mt-3'>
-                  <Textbox
-                    className='form-control fs-28 font-success height-66 text-center shadow-none'
-                    onKeyDown={onlyNumberInput}
-                    type='password'
-                    value={mpin}
-                    onChange={(e) => setMpin(e.target.value)}
-                    maxLength='6'
-                    placeholder='Please enter your 6-digit MPIN'
-                    css=''
-                  />
-                </div>
+                {errOTP && (
+                  <div class='alert alert-warning' role='alert'>
+                    <strong>OTP is incorrect</strong>
+                  </div>
+                )}
 
-                <label className='mt-3'>Confirm 6-digit PIN</label>
-                <div className='input-group mt-3'>
-                  <Textbox
-                    className='form-control fs-28 font-success height-66 text-center shadow-none'
-                    onKeyDown={onlyNumberInput}
-                    type='password'
-                    value={confirmMpin}
-                    onChange={handleConfirmMpinChange}
-                    maxLength='6'
-                    placeholder='Please enter confirm 6-digit MPIN'
-                    css=''
-                  />
-                </div>
-              </div>
-            )}
-
-            {step === 3 && (
-              <div className='row'>
-                <div className='mt-3'>Email</div>
-                <div className='input-group mt-3'>
-                  <Textbox
-                    type='email'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    maxLength='50'
-                    placeholder='Please enter your email'
-                    className='form-control fs-28 font-success height-66 text-center shadow-none'
-                  />
-                </div>
-                <div className='mt-3'>Name</div>
-                <div className='input-group mt-3'>
-                  <Textbox
-                    type='text'
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    maxLength='30'
-                    placeholder='Please enter your name'
-                    className='form-control fs-28 font-success height-66 text-center shadow-none'
-                  />
-                </div>
-              </div>
-            )}
-
-            {step === 4 && (
-              <div className='row'>
                 <div className='mt-3'>Enter the OTP that you received</div>
-                <div className='input-group mt-3'>
+                <div className='input-group'>
                   <Textbox
                     type='text'
                     value={otp}
@@ -236,21 +248,12 @@ const RegistrationPage = () => {
               <div className='col-lg-12'>
                 <Button
                   onClick={handleNextStep}
-                  content={
-                    step === 1
-                      ? "Proceed with verification"
-                      : step === 2
-                      ? "Next"
-                      : step === 3
-                      ? "Create Account"
-                      : "Verify OTP..."
-                  }
+                  content={step === 1 ? "Register Account" : "Verify OTP "}
                   css={
                     active
                       ? "mt-3 col-lg-6 col-12 w-100 border border-success rounded bg-gradients py-3 px-3"
                       : "opacity-50 pe-none mt-3 w-100 col-lg-6 col-12 border border-success rounded bg-gradients py-3 px-3"
                   }
-                  disabled={step === 4}
                 ></Button>
               </div>
             </div>

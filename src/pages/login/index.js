@@ -3,8 +3,6 @@ import Link from "next/link";
 
 import { useAuth } from "@/context/AuthContext";
 import ProtectedRoute from "@/components/layout/protectedRoute/ProtectedRoute";
-import BannerLogo from "@/components/layout/banner/bannerLogo";
-import BannerText from "@/components/layout/banner/bannerText";
 import Button from "@/components/layout/buttons/create";
 import PHFlag from "../inputreceiver/flag";
 import { useLocation } from "@/context/LocationContext";
@@ -48,7 +46,7 @@ const LoginPage = () => {
               <div className='row'>
                 <div className='container-fluid'>
                   <div className='row'>
-                    <div className='col-12 py-3 alert alert-danger font-semibold'>
+                    <div className='col-12 py-3 alert alert-warning font-semibold'>
                       {global.config.globals.invalidCredential}
                     </div>
                   </div>

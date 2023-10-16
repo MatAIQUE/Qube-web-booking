@@ -7,6 +7,7 @@ import ServiceList from "./serviceList";
 import { useLoading } from "@/context/LoadingContext";
 import LeftPanel from "@/components/layout/leftPanel";
 import ServiceSkeleton from "@/components/layout/skeleton/serviceSkeleton";
+import { useAuth } from "@/context/AuthContext";
 
 const Services = () => {
   const router = useRouter();
@@ -27,41 +28,58 @@ const Services = () => {
     });
   };
 
+  const { user } = useAuth();
+
+  const isAuthenticated = user;
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      router.push("/login");
+    }
+  }, [isAuthenticated, router]);
+
+  if (!isAuthenticated) {
+    return null;
+  }
+
   useEffect(() => {
     if (!service) {
       router.push({
         pathname: "/",
       });
     }
-  });
+  }, [service, router]);
 
   const getServices = async () => {
     setIsLoading(true);
-    setTimeout(async () => {
-      try {
-        await axios
-          .get(
-            `https://pandora-2-0-live.onrender.com/api/get/location/${locData}`
-          )
-          .then((res) => {
-            const result = res.data[0].service;
-            const filteredServices = result?.filter(
-              (service) => service.serviceStatus === "1"
-            );
 
-            setService(filteredServices);
-          });
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error);
-        setIsLoading(false);
-      }
-    }, 5000);
+    try {
+      await axios
+        .get(
+          `https://pandora-2-0-live.onrender.com/api/get/location/${locData}`
+        )
+        .then((res) => {
+          const result = res.data[0].service;
+          const filteredServices = result?.filter(
+            (service) => service.serviceStatus === "1"
+          );
+
+          setService(filteredServices);
+        });
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
     getServices();
   }, []);
+
+  if (!service) {
+    return null;
+  }
 
   return (
     <>

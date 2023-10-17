@@ -6,8 +6,8 @@ const BannerText = ({ unboldChar, boldChar, locker }) => {
       <h3 className='text-center'>
         {unboldChar}
         <p className='font-semibold'>
-          <Link style={{ textDecoration: "none", color: "#16b716" }} href='/'>
-            {locker}{" "}
+          <Link style={{ color: "#16b716", marginRight: "10px" }} href='/'>
+            {locker}
           </Link>
           {boldChar}
         </p>

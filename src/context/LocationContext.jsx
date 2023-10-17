@@ -8,9 +8,12 @@ export const useLocation = () => {
 
 export const LocationContextProvider = ({ children }) => {
   const [locData, setLocData] = useState("");
+  const [lockerLocationName, setLockerLocationName] = useState("");
 
   return (
-    <LocationContext.Provider value={{ locData, setLocData }}>
+    <LocationContext.Provider
+      value={{ locData, setLocData, lockerLocationName, setLockerLocationName }}
+    >
       {children}
     </LocationContext.Provider>
   );

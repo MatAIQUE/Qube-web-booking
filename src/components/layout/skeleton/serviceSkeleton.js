@@ -1,6 +1,6 @@
 const serviceSkeleton = () => {
   return (
-    <ul class='container-fluid'>
+    <ul className='container-fluid'>
       <li className='row bg bg-white rounded align-items-center mb-2 border-shadow services animated-fade'>
         <div className='col-3 text-center'></div>
         <div className='col-9'>
@@ -10,7 +10,7 @@ const serviceSkeleton = () => {
             </div>
             <div className='container'>
               <div className='row'>
-                <div class='col-12 fs-12 no-content'></div>
+                <div className='col-12 fs-12 no-content'></div>
               </div>
             </div>
           </div>
@@ -25,7 +25,7 @@ const serviceSkeleton = () => {
             </div>
             <div className='container'>
               <div className='row'>
-                <div class='col-12 fs-12 no-content'></div>
+                <div className='col-12 fs-12 no-content'></div>
               </div>
             </div>
           </div>
@@ -40,7 +40,7 @@ const serviceSkeleton = () => {
             </div>
             <div className='container'>
               <div className='row'>
-                <div class='col-12 fs-12 no-content'></div>
+                <div className='col-12 fs-12 no-content'></div>
               </div>
             </div>
           </div>
@@ -55,7 +55,7 @@ const serviceSkeleton = () => {
             </div>
             <div className='container'>
               <div className='row'>
-                <div class='col-12 fs-12 no-content'></div>
+                <div className='col-12 fs-12 no-content'></div>
               </div>
             </div>
           </div>
@@ -70,7 +70,7 @@ const serviceSkeleton = () => {
             </div>
             <div className='container'>
               <div className='row'>
-                <div class='col-12 fs-12 no-content'></div>
+                <div className='col-12 fs-12 no-content'></div>
               </div>
             </div>
           </div>

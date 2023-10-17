@@ -7,15 +7,13 @@ import ServiceList from "./serviceList";
 import { useLoading } from "@/context/LoadingContext";
 import LeftPanel from "@/components/layout/leftPanel";
 import ServiceSkeleton from "@/components/layout/skeleton/serviceSkeleton";
-import { useAuth } from "@/context/AuthContext";
-
 const Services = () => {
   const router = useRouter();
   const { isLoading, setIsLoading } = useLoading();
   const [service, setService] = useState([]);
   const [active, setActive] = useState(null);
 
-  const { locData } = useLocation();
+  const { locData, lockerLocationName } = useLocation();
 
   const navPage = (e, moduleData) => {
     const selectedServices = e?.toLowerCase();
@@ -28,31 +26,14 @@ const Services = () => {
     });
   };
 
-  const { user } = useAuth();
-
-  const isAuthenticated = user;
-
-  useEffect(() => {
-    if (!isAuthenticated) {
-      router.push("/login");
-    }
-  }, [isAuthenticated, router]);
-
-  if (!isAuthenticated) {
-    return null;
-  }
-
   useEffect(() => {
     if (!service) {
-      router.push({
-        pathname: "/",
-      });
+      router.push("/");
     }
-  }, [service, router]);
+  }, [service]);
 
   const getServices = async () => {
     setIsLoading(true);
-
     try {
       await axios
         .get(
@@ -77,16 +58,13 @@ const Services = () => {
     getServices();
   }, []);
 
-  if (!service) {
-    return null;
-  }
-
   return (
     <>
       <div className='container-fluid pt-5'>
         <div className='row'>
           <LeftPanel
-            title='Select the Services of  '
+            title='Select the Services of '
+            locker={lockerLocationName}
             description='SMARTLOCKERS'
           />
           <div className='col-lg-6 right-panel'>

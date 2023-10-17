@@ -8,7 +8,7 @@ import bounceLoader from "../../assets/lottie/bounceLoader";
 
 const Location = () => {
   const router = useRouter();
-  const { locData, setLocData } = useLocation();
+  const { setLocData, setLockerLocationName } = useLocation();
   const [lockerlocation, setLockerLocation] = useState([]);
   const { isLoading, setIsLoading } = useLoading();
 
@@ -18,6 +18,7 @@ const Location = () => {
 
   const getLockerLocation = async () => {
     setIsLoading(true);
+
     try {
       await axios
         .get("https://pandora-2-0-live.onrender.com/api/getAll/location")
@@ -36,7 +37,10 @@ const Location = () => {
 
   const handleLocationChange = () => {
     const selectedValue = event.target.value;
-    setLocData(selectedValue);
+    const selectedObject = JSON.parse(selectedValue);
+    const { location, lockerLocationName } = selectedObject;
+    setLocData(location);
+    setLockerLocationName(lockerLocationName);
     navPage();
   };
 
@@ -60,15 +64,20 @@ const Location = () => {
             </div>
             <div className='px-3'>
               <select
-                value={locData} // Set the selected value
-                onChange={handleLocationChange} // Attach the event handler
+                onChange={handleLocationChange}
                 id='locker-location'
                 className='fs-28 my-3 text-dark form-control form-select shadow-none text-center height-66 center'
               >
                 <option value='0000'>Select location</option>
                 {lockerlocation.map((item) => {
                   const lockerLocationOption = (
-                    <option value={item.location} key={item.location}>
+                    <option
+                      value={JSON.stringify({
+                        location: item.location,
+                        lockerLocationName: item.lockerLocationName,
+                      })}
+                      key={item.location}
+                    >
                       {item.lockerLocationName}
                     </option>
                   );

@@ -60,7 +60,7 @@ export function AuthContextProvider({ children }) {
 
     setUser(null);
 
-    router.push("/");
+    router.push("/login");
   };
 
   return (

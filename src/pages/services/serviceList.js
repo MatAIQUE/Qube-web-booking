@@ -13,6 +13,8 @@ const ServiceList = ({ service, active, setActive, navPage }) => {
         return svgs.keepSvg;
       case "Pay":
         return svgs.keepSvg;
+      case "Move":
+        return svgs.keepSvg;
       default:
         return null; // Handle other cases if needed
     }

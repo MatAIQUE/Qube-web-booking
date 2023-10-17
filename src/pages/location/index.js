@@ -57,22 +57,33 @@ const Location = () => {
       ) : (
         <div className='container-fluid'>
           <div className='row'>
-          <div className="col-12 overflow-scroll invisible-scrollbar">
-                <ul className="list-group list-group-horizontal me-auto">
-                  <li className="list-group-item me-2 me-lg-4 border-0 bg-transparent">Main Office 2
-                    <span class="badge text-muted rounded-pill ms-1">&gt;</span>
-                  </li>
-                  <li className="list-group-item me-2 me-lg-4 border-0 bg-transparent">Wash & Fold
-                    <span class="badge text-muted rounded-pill ms-1">&gt;</span>
-                  </li>
-                  <li className="list-group-item me-2 me-lg-4 border-0 bg-transparent">Within the day
-                    <span class="badge text-muted rounded-pill ms-1">&gt;</span>
-                  </li>
-                  <li className="list-group-item me-2 me-lg-4 border-0 bg-transparent">Within the day
-                    <span class="badge text-muted rounded-pill ms-1">&gt;</span>
-                  </li>
-                </ul>
-              </div>
+          <div className="col-12 overflow-scroll invisible-scrollbar d-flex flex-wrap">
+            <div className="px-2 me-2 mb-1" type="button">
+              <a hfre="#" className="text-black btn btn-gray">Select location
+                <span> &gt;</span>
+              </a>
+            </div>
+            <div className="px-2 me-2 mb-1" type="button">
+              <a hfre="#" className="text-black btn btn-gray">Main Office 2
+                <span> &gt;</span>
+              </a>
+            </div>
+            <div className="px-2 me-2 mb-1" type="button">
+              <a hfre="#" className="text-black btn btn-gray">Main Office 3
+                <span> &gt;</span>
+              </a>
+            </div>
+            <div className="px-2 me-2 mb-1" type="button">
+              <a hfre="#" className="text-black btn btn-gray">Main Office 4
+                <span> &gt;</span>
+              </a>
+            </div>
+            <div className="px-2 me-2 mb-1" type="button">
+              <a hfre="#" className="text-black btn btn-gray">Main Office 5
+                <span> &gt;</span>
+              </a>
+            </div>
+          </div>
             <div className='input-group mt-3 alert alert-success'>
               
               <div className='col-12 my-auto text-success'>

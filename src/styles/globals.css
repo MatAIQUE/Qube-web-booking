@@ -47,6 +47,10 @@ select {
   display: none;
 }
 
+.btn-gray:hover {
+  background-color: #cecece !important;
+  text-decoration: underline;
+}
 
 :root {
   --max-width: 1100px;

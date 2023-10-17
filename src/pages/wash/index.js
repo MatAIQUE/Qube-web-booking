@@ -3,7 +3,7 @@ import LeftPanel from "@/components/layout/leftPanel";
 
 const WashDefault = () => {
   return (
-    <div className='container-fluid pt-5'>
+    <div className='container-fluid'>
       <div className='row'>
         <LeftPanel title='Select the' description='SERVICE OPTION' />
         <div className='col-lg-6 right-panel'>

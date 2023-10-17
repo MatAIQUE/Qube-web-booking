@@ -39,7 +39,8 @@ const Layout = () => {
                         aria-expanded='false'
                         className=' text-decoration-none text-black'
                       >
-                        QRs
+                        {/* QRs */}
+                        fa-bell
                       </a>
                       <ul className='dropdown-menu py-3'>
                         {isLoadingTrans && "Loading Transaction ..."}
@@ -83,9 +84,16 @@ const Layout = () => {
                         aria-expanded='false'
                         className='text-decoration-none text-success'
                       >
-                        {user?.firstName ? user?.firstName : "Qube User"}
+                        {/* {user?.firstName ? user?.firstName : "Qube User"} */}
+                        fa-user
                       </a>
                       <ul className='dropdown-menu'>
+                        <li className="pe-none">
+                          <a className="dropdown-item py-3">
+                            <strong>{user.firstName}</strong>
+                          </a>
+                        </li>
+                        <div class="dropdown-divider"></div>
                         <li>
                           <a
                             className='dropdown-item text-center py-3'

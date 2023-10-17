@@ -57,7 +57,24 @@ const Location = () => {
       ) : (
         <div className='container-fluid'>
           <div className='row'>
+          <div className="col-12 overflow-scroll invisible-scrollbar">
+                <ul className="list-group list-group-horizontal me-auto">
+                  <li className="list-group-item me-2 me-lg-4 border-0 bg-transparent">Main Office 2
+                    <span class="badge text-muted rounded-pill ms-1">&gt;</span>
+                  </li>
+                  <li className="list-group-item me-2 me-lg-4 border-0 bg-transparent">Wash & Fold
+                    <span class="badge text-muted rounded-pill ms-1">&gt;</span>
+                  </li>
+                  <li className="list-group-item me-2 me-lg-4 border-0 bg-transparent">Within the day
+                    <span class="badge text-muted rounded-pill ms-1">&gt;</span>
+                  </li>
+                  <li className="list-group-item me-2 me-lg-4 border-0 bg-transparent">Within the day
+                    <span class="badge text-muted rounded-pill ms-1">&gt;</span>
+                  </li>
+                </ul>
+              </div>
             <div className='input-group mt-3 alert alert-success'>
+              
               <div className='col-12 my-auto text-success'>
                 <label>Select your Location to start the transaction</label>
               </div>

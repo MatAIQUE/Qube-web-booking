@@ -31,7 +31,7 @@ const GenerateViewQR = () => {
   };
 
   return (
-    <div className='container-fluid pt-5'>
+    <div className='container-fluid'>
       <div className='row'>
         <LeftPanel
           title='Your QR is ready!'

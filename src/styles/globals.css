@@ -43,6 +43,11 @@ select {
   background-image: url("../assets/img/target.svg") !important;
 }
 
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -309,3 +314,4 @@ input:focus-visible {
   animation: fadeIn 2s ease-in infinite;
   animation-fill-mode: both;
 }
+

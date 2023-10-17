@@ -4,13 +4,10 @@ import { useRouter } from "next/router";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useAuth } from "@/context/AuthContext";
 
-const Services = () => {
+const Services = ({ moduleData, serviceName }) => {
   const router = useRouter();
   const { user } = useAuth();
   const [active, setActive] = useState(null);
-
-  let moduleData = router.query.moduleData;
-  let serviceName = router.query.serviceName;
 
   const navPage = (e) => {
     if (e == 1) {

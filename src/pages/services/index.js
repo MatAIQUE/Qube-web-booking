@@ -7,6 +7,7 @@ import ServiceList from "./serviceList";
 import { useLoading } from "@/context/LoadingContext";
 import LeftPanel from "@/components/layout/leftPanel";
 import ServiceSkeleton from "@/components/layout/skeleton/serviceSkeleton";
+import Breadcrumb from "@/components/layout/breadcrumbs";
 const Services = () => {
   const router = useRouter();
   const { isLoading, setIsLoading } = useLoading();
@@ -64,12 +65,12 @@ const Services = () => {
         <div className='row'>
           <LeftPanel
             title='Select the Services of '
-            locker={lockerLocationName}
             description='SMARTLOCKERS'
           />
           <div className='col-lg-6 right-panel'>
             <div className='row'>
               <div className='col-lg-12'>
+                <Breadcrumb lockerLocationName={lockerLocationName} />
                 {isLoading ? (
                   <ServiceSkeleton />
                 ) : (

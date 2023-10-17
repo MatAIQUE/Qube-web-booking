@@ -57,35 +57,7 @@ const Location = () => {
       ) : (
         <div className='container-fluid'>
           <div className='row'>
-          <div className="col-12 overflow-scroll invisible-scrollbar d-flex flex-wrap">
-            <div className="mb-1" type="button">
-              <a hfre="#" className="text-black btn btn-gray">Select location
-                <span> &gt;</span>
-              </a>
-            </div>
-            <div className="mb-1" type="button">
-              <a hfre="#" className="text-black btn btn-gray">Main Office 2
-                <span> &gt;</span>
-              </a>
-            </div>
-            <div className="mb-1" type="button">
-              <a hfre="#" className="text-black btn btn-gray">Main Office 3
-                <span> &gt;</span>
-              </a>
-            </div>
-            <div className="mb-1" type="button">
-              <a hfre="#" className="text-black btn btn-gray">Main Office 4
-                <span> &gt;</span>
-              </a>
-            </div>
-            <div className="mb-1" type="button">
-              <a hfre="#" className="text-black btn btn-gray">Main Office 5
-                <span> &gt;</span>
-              </a>
-            </div>
-          </div>
             <div className='input-group mt-3 alert alert-success'>
-              
               <div className='col-12 my-auto text-success'>
                 <label>Select your Location to start the transaction</label>
               </div>

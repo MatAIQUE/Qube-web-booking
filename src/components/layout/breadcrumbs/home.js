@@ -1,7 +1,39 @@
-const Home = () => {
+const Home = ({ lockerLocationName, serviceName, service }) => {
+  function getServiceName(service) {
+    switch (service) {
+      case "1":
+        return "Wash And Fold";
+      case "2":
+        return "Shoe Care";
+      case "3":
+        return "Dry Clean";
+      case "4":
+        return "Comforters";
+      case "5":
+        return "Pet Care";
+      case "6":
+        return "Bag Care";
+      default:
+        return null; // Handle other cases if needed
+    }
+  }
+
   return (
-    <div className='col-md-2'>
-      <span className='font-success'>{global.config.breadcrumbs.home}</span>
+    <div className='col-12 overflow-scroll invisible-scrollbar d-flex flex-wrap'>
+      <div className='mb-1' type='button'>
+        <a hfre='#' className='text-black btn btn-gray'>
+          {lockerLocationName}
+          {lockerLocationName && <span> &gt;</span>}
+        </a>
+        <a hfre='#' className='text-black btn btn-gray'>
+          {serviceName}
+          {serviceName && <span> &gt;</span>}
+        </a>
+        <a href='#' className='text-black btn btn-gray'>
+          {getServiceName(service)}
+          {service && <span> &gt;</span>}
+        </a>
+      </div>
     </div>
   );
 };

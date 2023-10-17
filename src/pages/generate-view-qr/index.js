@@ -61,7 +61,7 @@ const GenerateViewQR = () => {
                       </div>
                     </div>
                     <div className='col-6 text-right'>
-                      <div px-5 py-3>
+                      <div className="px-5 py-3">
                         <div> {transaction?.transNumber}</div>
                         <div> {transaction?.qpin}</div>
                         <div> {transaction?.serviceName}</div>

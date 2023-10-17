@@ -69,7 +69,7 @@ const GenerateQR = () => {
                       </div>
                     </div>
                     <div className='col-6 text-right'>
-                      <div px-5 py-3>
+                      <div>
                         <div> {transNumber}</div>
                         <div> {qpin}</div>
                         <div> {serviceName}</div>

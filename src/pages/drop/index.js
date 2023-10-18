@@ -1,16 +1,27 @@
 import LeftPanel from "@/components/layout/leftPanel";
-import BannerLogo from "../../components/layout/banner/bannerLogo";
-import BannerText from "../../components/layout/banner/bannerText";
 import DropSizes from "./doorsizes/sizes-list";
+import { useRouter } from "next/router";
+import { useLocation } from "@/context/LocationContext";
+import Breadcrumb from "@/components/layout/breadcrumbs";
 
 const DropModule = () => {
+  const router = useRouter();
+
+  const { lockerLocationName } = useLocation();
+  let moduleData = router.query.moduleData;
+  let serviceName = router.query.serviceName;
+
   return (
-    <div className='container-fluid pt-5'>
+    <div className='container-fluid'>
       <div className='row'>
         <LeftPanel title='Please select' description='LOCKERSIZE' />
         <div className='col-lg-6 right-panel'>
           <div className='row'>
             <div className='col-lg-12'>
+              <Breadcrumb
+                lockerLocationName={lockerLocationName}
+                serviceName={serviceName}
+              />
               <DropSizes />
             </div>
           </div>

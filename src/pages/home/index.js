@@ -4,7 +4,7 @@ import LeftPanel from "@/components/layout/leftPanel";
 const HomePageWrap = () => {
   return (
     <>
-      <div className='container-fluid pt-5'>
+      <div className='container-fluid'>
         <div className='row'>
           <LeftPanel description='SMARTLOCKERS' title='Discover the power of' />
           <div className='col-12 col-md-6 right-panel'>

@@ -31,82 +31,93 @@ const Layout = () => {
               {user ? (
                 <div className='col-6 d-flex text-end justify-content-end'>
                   <div className='col-6'>
-                    <li className='nav-item dropdown'>
-                      <a
-                        href='#'
-                        role='button'
-                        data-bs-toggle='dropdown'
-                        aria-expanded='false'
-                        className=' text-decoration-none text-black'
-                      >
-                        {/* QRs */}
-                        fa-bell
-                      </a>
-                      <ul className='dropdown-menu py-3'>
-                        {isLoadingTrans && "Loading Transaction ..."}
-                        {transaction.map((trans) => (
-                          <li key={trans._id}>
+                    <ul
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "flex-end",
+                        gap: "20px",
+                      }}
+                    >
+                      <li className='nav-item dropdown'>
+                        <a
+                          href='#'
+                          role='button'
+                          data-bs-toggle='dropdown'
+                          aria-expanded='false'
+                          className=' text-decoration-none text-black'
+                        >
+                          <i
+                            className='bi bi-bell'
+                            style={{ fontSize: "30px" }}
+                          ></i>
+                        </a>
+                        <ul className='dropdown-menu py-3'>
+                          {isLoadingTrans && "Loading Transaction ..."}
+                          {transaction.map((trans) => (
+                            <li key={trans._id}>
+                              <a
+                                onClick={(e) => handleQuickPin(trans)}
+                                className='dropdown-item mb-2'
+                                // href='/generate-view-qr'
+                              >
+                                <span className='fw-bold small text-success'>
+                                  {/* Your Quickpin is {trans.qpin} */}
+                                  {/* get service name and replace module data */}
+                                  Your quickpin for your {trans.moduleData} is
+                                  ready
+                                </span>
+                                <br />
+                                <span className='text-muted small'>
+                                  Transaction {trans.transNumber}
+                                </span>
+                                <br />
+                                <span className='text-muted  small'>
+                                  Location: {trans.locName}
+                                </span>
+                                <br />
+                                <span className='text-muted small'>
+                                  Tap here to view QR
+                                </span>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                      <li className='nav-item dropdown'>
+                        <a
+                          href='#'
+                          role='button'
+                          data-bs-toggle='dropdown'
+                          aria-expanded='false'
+                          className='text-decoration-none text-success'
+                        >
+                          <i
+                            className='bi bi-person-circle'
+                            style={{ fontSize: "30px" }}
+                          ></i>
+                        </a>
+                        <ul className='dropdown-menu'>
+                          <li className='pe-none'>
+                            <a className='dropdown-item py-3'>
+                              <strong>{user.firstName}</strong>
+                            </a>
+                          </li>
+                          <div className='dropdown-divider'></div>
+                          <li>
                             <a
-                              onClick={(e) => handleQuickPin(trans)}
-                              className='dropdown-item mb-2'
-                              // href='/generate-view-qr'
+                              className='dropdown-item text-center py-3'
+                              role='button'
+                              onClick={logout}
                             >
-                              <span className='fw-bold small text-success'>
-                                {/* Your Quickpin is {trans.qpin} */}
-                                {/* get service name and replace module data */}
-                                Your quickpin for your {trans.moduleData} is
-                                ready
-                              </span>
-                              <br />
-                              <span className='text-muted small'>
-                                Transaction {trans.transNumber}
-                              </span>
-                              <br />
-                              <span className='text-muted  small'>
-                                Location: {trans.locName}
-                              </span>
-                              <br />
-                              <span className='text-muted small'>
-                                Tap here to view QR
+                              <span className='fw-bold small pe-pointer text-danger'>
+                                Logout
                               </span>
                             </a>
                           </li>
-                        ))}
-                      </ul>
-                    </li>
-                  </div>
-                  <div className='col-6 text-uppercase fw-bold text-success'>
-                    <li className='nav-item dropdown'>
-                      <a
-                        href='#'
-                        role='button'
-                        data-bs-toggle='dropdown'
-                        aria-expanded='false'
-                        className='text-decoration-none text-success'
-                      >
-                        {/* {user?.firstName ? user?.firstName : "Qube User"} */}
-                        fa-user
-                      </a>
-                      <ul className='dropdown-menu'>
-                        <li className="pe-none">
-                          <a className="dropdown-item py-3">
-                            <strong>{user.firstName}</strong>
-                          </a>
-                        </li>
-                        <div class="dropdown-divider"></div>
-                        <li>
-                          <a
-                            className='dropdown-item text-center py-3'
-                            role='button'
-                            onClick={logout}
-                          >
-                            <span className='fw-bold small pe-pointer text-danger'>
-                              Logout
-                            </span>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
+                        </ul>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               ) : currentUrl == "/login" ? (

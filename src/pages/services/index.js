@@ -43,7 +43,10 @@ const Services = () => {
         .then((res) => {
           const result = res.data[0].service;
           const filteredServices = result?.filter(
-            (service) => service.serviceStatus === "1"
+            (service) =>
+              service.serviceStatus === "1" &&
+              service.serviceID !== "0005" &&
+              service.serviceID !== "0006"
           );
 
           setService(filteredServices);

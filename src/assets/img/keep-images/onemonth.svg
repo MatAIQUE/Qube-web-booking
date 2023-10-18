@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48.26" height="48.765" viewBox="0 0 48.26 48.765">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#50ba84"/>
+      <stop offset="1" stop-color="#15abd0"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_1255" data-name="Group 1255" transform="translate(-985.89 -1160)">
+    <path id="Path_2080" data-name="Path 2080" d="M1034.15,1170.725v35.41a2.633,2.633,0,0,1-2.63,2.63h-43a2.633,2.633,0,0,1-2.63-2.63v-35.41Z" fill="#e5e5e5"/>
+    <path id="Rectangle_418" data-name="Rectangle 418" d="M2.628,0h43a2.628,2.628,0,0,1,2.628,2.628v8.1a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0v-8.1A2.628,2.628,0,0,1,2.628,0Z" transform="translate(985.894 1160)" fill="#333"/>
+    <path id="Path_2081" data-name="Path 2081" d="M1034.15,1196.145v9.99a2.633,2.633,0,0,1-2.63,2.63h-9.99Z" fill="#c6c6c6"/>
+    <g id="Group_1236" data-name="Group 1236">
+      <rect id="Rectangle_419" data-name="Rectangle 419" width="6.014" height="6.014" rx="0.802" transform="translate(994.917 1173.851)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_420" data-name="Rectangle 420" width="6.014" height="6.014" rx="0.802" transform="translate(1002.936 1173.851)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_421" data-name="Rectangle 421" width="6.014" height="6.014" rx="0.802" transform="translate(1010.954 1173.851)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_422" data-name="Rectangle 422" width="6.014" height="6.014" rx="0.802" transform="translate(1018.973 1173.851)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_423" data-name="Rectangle 423" width="6.014" height="6.014" rx="0.802" transform="translate(994.917 1182.144)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_424" data-name="Rectangle 424" width="6.014" height="6.014" rx="0.802" transform="translate(1002.936 1182.144)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_425" data-name="Rectangle 425" width="6.014" height="6.014" rx="0.802" transform="translate(1010.954 1182.144)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_426" data-name="Rectangle 426" width="6.014" height="6.014" rx="0.802" transform="translate(1018.973 1182.144)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_427" data-name="Rectangle 427" width="6.014" height="6.014" rx="0.802" transform="translate(994.917 1190.438)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_428" data-name="Rectangle 428" width="6.014" height="6.014" rx="0.802" transform="translate(1002.936 1190.438)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_429" data-name="Rectangle 429" width="6.014" height="6.014" rx="0.802" transform="translate(1010.954 1190.438)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_430" data-name="Rectangle 430" width="6.014" height="6.014" rx="0.802" transform="translate(1018.973 1190.438)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_431" data-name="Rectangle 431" width="6.014" height="6.014" rx="0.802" transform="translate(994.917 1198.731)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_432" data-name="Rectangle 432" width="6.014" height="6.014" rx="0.802" transform="translate(1002.936 1198.731)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_433" data-name="Rectangle 433" width="6.014" height="6.014" rx="0.802" transform="translate(1010.954 1198.731)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_434" data-name="Rectangle 434" width="6.014" height="6.014" rx="0.802" transform="translate(1018.973 1198.731)" fill="url(#linear-gradient)"/>
+    </g>
+    <path id="Path_2082" data-name="Path 2082" d="M1034.15,1196.149l-12.616,12.616v-12.616Z" fill="#333"/>
+  </g>
+</svg>

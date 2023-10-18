@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import BannerLogo from '@/components/layout/banner/bannerLogo';
 import BannerText from '@/components/layout/banner/bannerText';
 import KeepDuration from '../../../utils/keep_duration'
+import Image from 'next/image';
 const DoorRate = () => {
     const [active, setActive] = useState(null)
     const router = useRouter()
@@ -50,7 +51,7 @@ const DoorRate = () => {
                                                 
                                                 <div className="col-3 font-semibold text-center">
                                                     <div>
-                                                        <h6>{val.durationName}</h6>
+                                                        <Image src={val.image}/>
                                                     </div>
                                                 </div>
 

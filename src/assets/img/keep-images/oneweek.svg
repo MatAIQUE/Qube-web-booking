@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48.26" height="48.765" viewBox="0 0 48.26 48.765">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#50ba84"/>
+      <stop offset="1" stop-color="#15abd0"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_1254" data-name="Group 1254" transform="translate(-985.89 -1069.106)">
+    <path id="Path_2077" data-name="Path 2077" d="M1034.15,1079.831v35.41a2.633,2.633,0,0,1-2.63,2.63h-43a2.633,2.633,0,0,1-2.63-2.63v-35.41Z" fill="#e5e5e5"/>
+    <path id="Rectangle_401" data-name="Rectangle 401" d="M2.628,0h43a2.628,2.628,0,0,1,2.628,2.628v8.1a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0v-8.1A2.628,2.628,0,0,1,2.628,0Z" transform="translate(985.894 1069.106)" fill="#333"/>
+    <path id="Path_2078" data-name="Path 2078" d="M1034.15,1105.251v9.99a2.633,2.633,0,0,1-2.63,2.63h-9.99Z" fill="#c6c6c6"/>
+    <g id="Group_1234" data-name="Group 1234">
+      <rect id="Rectangle_402" data-name="Rectangle 402" width="6.014" height="6.014" rx="0.802" transform="translate(994.917 1082.915)" fill="#c6c6c6"/>
+      <rect id="Rectangle_403" data-name="Rectangle 403" width="6.014" height="6.014" rx="0.802" transform="translate(1002.936 1082.915)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_404" data-name="Rectangle 404" width="6.014" height="6.014" rx="0.802" transform="translate(1010.954 1082.915)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_405" data-name="Rectangle 405" width="6.014" height="6.014" rx="0.802" transform="translate(1018.973 1082.915)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_406" data-name="Rectangle 406" width="6.014" height="6.014" rx="0.802" transform="translate(994.917 1091.208)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_407" data-name="Rectangle 407" width="6.014" height="6.014" rx="0.802" transform="translate(1002.936 1091.208)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_408" data-name="Rectangle 408" width="6.014" height="6.014" rx="0.802" transform="translate(1010.954 1091.208)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_409" data-name="Rectangle 409" width="6.014" height="6.014" rx="0.802" transform="translate(1018.973 1091.208)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_410" data-name="Rectangle 410" width="6.014" height="6.014" rx="0.802" transform="translate(994.917 1099.501)" fill="#c6c6c6"/>
+      <rect id="Rectangle_411" data-name="Rectangle 411" width="6.014" height="6.014" rx="0.802" transform="translate(1002.936 1099.501)" fill="#c6c6c6"/>
+      <rect id="Rectangle_412" data-name="Rectangle 412" width="6.014" height="6.014" rx="0.802" transform="translate(1010.954 1099.501)" fill="#c6c6c6"/>
+      <rect id="Rectangle_413" data-name="Rectangle 413" width="6.014" height="6.014" rx="0.802" transform="translate(1018.973 1099.501)" fill="#c6c6c6"/>
+      <rect id="Rectangle_414" data-name="Rectangle 414" width="6.014" height="6.014" rx="0.802" transform="translate(994.917 1107.795)" fill="#c6c6c6"/>
+      <rect id="Rectangle_415" data-name="Rectangle 415" width="6.014" height="6.014" rx="0.802" transform="translate(1002.936 1107.795)" fill="#c6c6c6"/>
+      <rect id="Rectangle_416" data-name="Rectangle 416" width="6.014" height="6.014" rx="0.802" transform="translate(1010.954 1107.795)" fill="#c6c6c6"/>
+      <rect id="Rectangle_417" data-name="Rectangle 417" width="6.014" height="6.014" rx="0.802" transform="translate(1018.973 1107.795)" fill="#c6c6c6"/>
+    </g>
+    <path id="Path_2079" data-name="Path 2079" d="M1034.15,1105.255l-12.616,12.616v-12.616Z" fill="#333"/>
+  </g>
+</svg>

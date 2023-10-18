@@ -66,7 +66,7 @@ const Location = () => {
               <select
                 onChange={handleLocationChange}
                 id='locker-location'
-                className='fs-28 my-3 text-dark form-control form-select shadow-none text-center height-66 center'
+                className='fs-28 my-3 text-dark form-select shadow-none text-center height-66 center'
               >
                 <option value='0000'>Select location</option>
                 {lockerlocation.map((item) => {

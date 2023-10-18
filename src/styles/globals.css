@@ -334,3 +334,8 @@ input:focus-visible {
   background: #50ba84; 
   border-radius: 10px;
 }
+
+.avatar {
+  width: 35px !important;
+  height: 35px !important;
+}

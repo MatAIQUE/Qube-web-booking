@@ -3,6 +3,8 @@ import Logo from "./logo";
 import Menu from "./menu";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/router";
+import Image from "next/image";
+import qubeeAvatar from "@/assets/img/qubeeAvatar.svg"
 
 const Layout = () => {
   const { user, logout } = useAuth();
@@ -45,7 +47,7 @@ const Layout = () => {
                           style={{ fontSize: "30px" }}
                         ></i>
                       </a>
-                      <ul className='dropdown-menu py-3'>
+                      <ul className='dropdown-menu py-3 mt-2'>
                         {isLoadingTrans && "Loading Transaction ..."}
                         {transaction.length < 1 && (
                           <>
@@ -103,12 +105,9 @@ const Layout = () => {
                         aria-expanded='false'
                         className='text-decoration-none text-qube'
                       >
-                        <i
-                          className='bi bi-person-circle'
-                          style={{ fontSize: "30px" }}
-                        ></i>
+                        <Image src={qubeeAvatar} className="w-100 avatar"/>
                       </a>
-                      <ul className='dropdown-menu'>
+                      <ul className='dropdown-menu mt-3'>
                         <li className='pe-none'>
                           <a className='dropdown-item py-3'>
                             <strong className='text-capitalize'>

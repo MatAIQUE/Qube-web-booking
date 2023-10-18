@@ -1,31 +1,34 @@
-import BannerLogo from '../../components/layout/banner/bannerLogo'
-import BannerText from '../../components/layout/banner/bannerText'
-import DropSizes from './doorsizes/sizes-list'
+import LeftPanel from "@/components/layout/leftPanel";
+import DropSizes from "./doorsizes/sizes-list";
+import { useRouter } from "next/router";
+import { useLocation } from "@/context/LocationContext";
+import Breadcrumb from "@/components/layout/breadcrumbs";
 
 const FoodModule = () => {
+  const router = useRouter();
 
-    return (
-        <div className='container-fluid pt-5'>
-            
-            <div className='row'>
-                <div className='col-lg-5 left-panel align-self-center'>
-                    {/* left */}
-                    <div className='row'>
-                        <div className='col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6'><BannerText unboldChar="Please select" boldChar="LOCKERSIZE" /></div>
-                        <div className='col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6'><BannerLogo/></div>
-                    </div>
-                </div>
-                <div className='col-lg-7 right-panel'>
-                    {/* right */}
-                    <div className='row'>
-                        <div className='col-lg-12'>
-                            < DropSizes/>
-                        </div>
-                    </div>
-                </div>
+  const { lockerLocationName } = useLocation();
+  let moduleData = router.query.moduleData;
+  let serviceName = router.query.serviceName;
+
+  return (
+    <div className='container-fluid'>
+      <div className='row'>
+        <LeftPanel title='Please select' description='LOCKERSIZE' />
+        <div className='col-lg-6 right-panel'>
+          <div className='row'>
+            <div className='col-lg-12'>
+              <Breadcrumb
+                lockerLocationName={lockerLocationName}
+                serviceName={serviceName}
+              />
+              <DropSizes />
             </div>
+          </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-export default FoodModule
+export default FoodModule;

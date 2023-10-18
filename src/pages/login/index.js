@@ -123,7 +123,7 @@ const LoginPage = () => {
               <div className='col-lg-12 pt-5'>
                 <div className='container-fluid text-center w-100 align-self-center'>
                   <div>
-                    <span>Dont have an account yet?</span>
+                    <span>Don't have an account yet?</span>
                   </div>
                   <div>
                     <Link href='/register'>Register</Link>

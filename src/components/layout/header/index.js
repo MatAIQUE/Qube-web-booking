@@ -101,7 +101,7 @@ const Layout = () => {
                         role='button'
                         data-bs-toggle='dropdown'
                         aria-expanded='false'
-                        className='text-decoration-none text-success'
+                        className='text-decoration-none text-qube'
                       >
                         <i
                           className='bi bi-person-circle'

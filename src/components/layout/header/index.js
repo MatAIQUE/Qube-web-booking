@@ -48,11 +48,18 @@ const Layout = () => {
                       <ul className='dropdown-menu py-3'>
                         {isLoadingTrans && "Loading Transaction ..."}
                         {transaction.length < 1 && (
+                          <>
                           <li>
-                            <span className='fw-bold small text-success text-center'>
+                            <span className='fw-bold small text-muted dropdown-item text-center'>
                               No Notification
                             </span>
                           </li>
+                          <li>
+                            <span className='small text-muted dropdown-item text-center'>
+                              Can't see your QR? Try reloading your browser
+                            </span>
+                          </li>
+                          </>
                         )}
 
                         {transaction.map((trans) => (

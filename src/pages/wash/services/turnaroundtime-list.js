@@ -93,11 +93,8 @@ const TurnAroundTimeList = () => {
               <Image src={val.serviceImage} alt='' />
             </div>
 
-            {/* module content */}
             <div className='col-9'>
-              {/* module title */}
               <div className='row'>
-                {/* title */}
                 <div className='container'>
                   <div className='row font-semibold mb-1'>
                     <div className='col-12 fs-28 font-capitalize font-dark'>
@@ -106,7 +103,6 @@ const TurnAroundTimeList = () => {
                   </div>
                 </div>
 
-                {/* description */}
                 <div className='container'>
                   <div className='row'>
                     <div className='col-12 fs-12'>{val.tatDescription}</div>

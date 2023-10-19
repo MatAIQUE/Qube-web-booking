@@ -1,10 +1,9 @@
-import lottieFiles from "./lotties";
 import svgs from "./svg";
 const turnaroundtimeNotWash = [
   {
     tatID: "0",
-    tatTitle: "Normal",
-    // tatDescription: "Deliver after 24 hours",
+    tatTitle: "Standard",
+    // tatDescription: "Deliver after 4 to 5 days",
     serviceImage: svgs.after24hrs,
   },
 

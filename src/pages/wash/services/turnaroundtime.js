@@ -13,8 +13,6 @@ const TAT = () => {
   let serviceName = router.query.serviceName;
   let service = router.query.service;
 
-  // console.log(service);
-
   return (
     <>
       <div className='container-fluid'>

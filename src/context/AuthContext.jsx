@@ -71,6 +71,7 @@ export function AuthContextProvider({ children }) {
         logout,
         login,
         error,
+        setError,
         isLogin,
         mobile,
         mpin,

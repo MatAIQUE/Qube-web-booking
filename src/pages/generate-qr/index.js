@@ -52,7 +52,7 @@ const GenerateQR = () => {
                           <strong>Transaction no.:</strong>
                         </div>
                         <div>
-                          <strong>Quickpin:</strong>
+                          <strong>QUICKPIN:</strong>
                         </div>
                         <div>
                           <strong>Service:</strong>

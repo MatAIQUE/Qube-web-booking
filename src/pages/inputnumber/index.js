@@ -1,12 +1,8 @@
-import BannerLogo from "@/components/layout/banner/bannerLogo";
-import BannerText from "@/components/layout/banner/bannerText";
 import { useRouter } from "next/router";
-import InputMobileNumber from "./inputMobileNumber";
 import Button from "@/components/layout/buttons/default";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import SocialMedia from "@/components/layout/buttons/socialmedia";
-import Location from "@/components/layout/option/location";
-import { AuthContext, useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 import Lottie from "lottie-react";
 import bounceLoader from "../../assets/lottie/bounceLoader";
 import PHFlag from "./flag";
@@ -15,11 +11,9 @@ import axios from "axios";
 import LeftPanel from "@/components/layout/leftPanel";
 
 const InputNumber = () => {
-  const { user } = useAuth();
   const { isLoading, setIsLoading } = useLoading();
   const router = useRouter();
   const [getMobileNumber, setGetMobileNumber] = useState(0);
-  // const [activeBorder, setActiveBorder] = useState("");
 
   const [mobile, setMobile] = useState(0);
   const [active, setActive] = useState("");
@@ -30,6 +24,12 @@ const InputNumber = () => {
   let mobileNumber = router.query.mobileNumber;
   let doorSize = router.query.doorSize;
   let serviceFileName = router.query.serviceFileName;
+
+  useEffect(() => {
+    if (!moduleData) {
+      router.push("/");
+    }
+  }, [moduleData]);
 
   function onlyNumberInput() {
     var key = event.which || event.keyCode;
@@ -111,7 +111,6 @@ const InputNumber = () => {
                   />
                 )}
                 <div className='row'>
-                  <label>Please enter your mobile number</label>
                   <div className='input-group mt-3'>
                     <div className='input-group-prepend'>
                       <span

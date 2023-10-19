@@ -4,7 +4,7 @@ import Menu from "./menu";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import qubeeAvatar from "@/assets/img/qubeeAvatar.svg"
+import qubeeAvatar from "@/assets/img/qubeeAvatar.svg";
 
 const Layout = () => {
   const { user, logout } = useAuth();
@@ -19,6 +19,26 @@ const Layout = () => {
       pathname: "/generate-view-qr",
     });
   };
+
+  function getServiceName(transaction) {
+    switch (transaction) {
+      case "0001":
+        return "WASH";
+      case "0002":
+        return "DROP";
+      case "0003":
+        return "KEEP";
+      case "0004":
+        return "FOOD";
+      case "0005":
+        return "PAY";
+      case "0006":
+        return "MOVE";
+      default:
+        return null;
+    }
+  }
+  // console.log(transaction);
 
   return (
     <>
@@ -44,23 +64,23 @@ const Layout = () => {
                       >
                         <i
                           className='bi bi-bell'
-                          style={{ fontSize: "30px" }}
+                          style={{ fontSize: "28px", color: "green" }}
                         ></i>
                       </a>
                       <ul className='dropdown-menu py-3 mt-2'>
                         {isLoadingTrans && "Loading Transaction ..."}
                         {transaction.length < 1 && (
                           <>
-                          <li>
-                            <span className='fw-bold small text-muted dropdown-item text-center'>
-                              No Notification
-                            </span>
-                          </li>
-                          <li>
-                            <span className='small text-muted dropdown-item text-center'>
-                              Can't see your QR? Try reloading your browser
-                            </span>
-                          </li>
+                            <li>
+                              <span className='fw-bold small text-muted dropdown-item text-center'>
+                                No Notification
+                              </span>
+                            </li>
+                            <li>
+                              <span className='small text-muted dropdown-item text-center'>
+                                Can't see your QR? Try reloading your browser
+                              </span>
+                            </li>
                           </>
                         )}
 
@@ -74,8 +94,8 @@ const Layout = () => {
                               <span className='fw-bold small text-success'>
                                 {/* Your Quickpin is {trans.qpin} */}
                                 {/* get service name and replace module data */}
-                                Your quickpin for your {trans.moduleData} is
-                                ready
+                                Your quickpin for your {""}
+                                {getServiceName(trans.moduleData)} is ready
                               </span>
                               <br />
                               <span className='text-muted small'>
@@ -105,7 +125,7 @@ const Layout = () => {
                         aria-expanded='false'
                         className='text-decoration-none text-qube'
                       >
-                        <Image src={qubeeAvatar} className="w-100 avatar"/>
+                        <Image src={qubeeAvatar} className='w-100 avatar' />
                       </a>
                       <ul className='dropdown-menu mt-3'>
                         <li className='pe-none'>

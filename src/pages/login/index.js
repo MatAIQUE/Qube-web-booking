@@ -9,7 +9,8 @@ import { useLocation } from "@/context/LocationContext";
 import LeftPanel from "@/components/layout/leftPanel";
 
 const LoginPage = () => {
-  const { login, error, mobile, mpin, setMobile, setMpin } = useAuth();
+  const { login, error, mobile, mpin, setMobile, setMpin, setError } =
+    useAuth();
   const { setLocData } = useLocation();
   const [active, setActive] = useState("");
 
@@ -20,6 +21,14 @@ const LoginPage = () => {
       setActive(false);
     }
   });
+
+  useEffect(() => {
+    if (error) {
+      setError(false);
+      setMobile("");
+      setMpin("");
+    }
+  }, []);
 
   function onlyNumberInput() {
     var key = event.which || event.keyCode;

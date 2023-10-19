@@ -3,14 +3,14 @@ import svgs from "./svg";
 const turnaroundtime = [
   {
     tatID: "1",
-    tatTitle: "After 24 hours",
+    tatTitle: "Next Day",
     tatDescription: "Deliver after 24 hours",
     serviceImage: svgs.after24hrs,
   },
 
   {
     tatID: "2",
-    tatTitle: "Within 24 hours",
+    tatTitle: "Same Day",
     tatDescription: "Delivery within 24 hours",
     serviceImage: svgs.within24hrs,
   },

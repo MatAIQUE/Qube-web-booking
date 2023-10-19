@@ -68,6 +68,7 @@ const RegistrationPage = () => {
             })
             .then((response) => {
               setStep(2);
+              setError(false);
             });
         } catch (error) {
           // console.error("Error sending otp", error);
@@ -81,6 +82,7 @@ const RegistrationPage = () => {
         setErrMpin(true);
         setMpin("");
         setConfirmMpin("");
+        setError(false);
       }
 
       setActive(false);
@@ -95,15 +97,12 @@ const RegistrationPage = () => {
             otp,
           })
           .then((response) => {
-            // Handle success, navigate to the next page, or display a success message
             router.push("/login");
             setMobileNumber("");
             setMpin("");
             setEmail("");
             setName("");
             setStep(1);
-
-            // console.log(response);
           });
       } catch (error) {
         console.error("Error verify otp:", error);
@@ -148,7 +147,16 @@ const RegistrationPage = () => {
                     <Textbox
                       type='text'
                       value={name}
-                      onChange={(e) => setName(e.target.value)}
+                      onChange={(e) => {
+                        const inputValue = e.target.value;
+
+                        const filteredValue = inputValue.replace(
+                          /[^a-zA-Z ]/g,
+                          ""
+                        );
+
+                        setName(filteredValue);
+                      }}
                       maxLength='30'
                       placeholder='Please enter your name'
                       className='form-control fs-28 font-success height-66 text-center shadow-none'
@@ -191,7 +199,7 @@ const RegistrationPage = () => {
                     />
                   </div>
 
-                  <label className='mt-3'>Create 6-digit PIN</label>
+                  <label className='mt-3'>Create 6-digit MPIN</label>
                   <div className='input-group mt-3'>
                     <Textbox
                       className='form-control fs-28 font-success height-66 text-center shadow-none'
@@ -205,7 +213,7 @@ const RegistrationPage = () => {
                     />
                   </div>
 
-                  <label className='mt-3'>Confirm 6-digit PIN</label>
+                  <label className='mt-3'>Confirm 6-digit MPIN</label>
                   <div className='input-group mt-3'>
                     <Textbox
                       className='form-control fs-28 font-success height-66 text-center shadow-none'

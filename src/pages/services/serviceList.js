@@ -45,7 +45,7 @@ const ServiceList = ({ service, active, setActive, navPage }) => {
               <div className='container'>
                 <div className='row font-semibold mb-1'>
                   <div className='col-12 fs-28 font-capitalize font-dark'>
-                    {val?.serviceType}
+                    {val?.serviceType.toUpperCase()}
                   </div>
                 </div>
               </div>

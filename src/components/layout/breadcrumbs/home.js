@@ -20,19 +20,17 @@ const Home = ({ lockerLocationName, serviceName, service }) => {
 
   return (
     <div className='col-12 overflow-scroll invisible-scrollbar d-flex flex-wrap'>
-      <div className='mb-1' type='button'>
-        <a hfre='#' className='text-black btn btn-gray'>
-          {lockerLocationName}
-          {lockerLocationName && <span> &gt;</span>}
-        </a>
-        <a hfre='#' className='text-black btn btn-gray'>
-          {serviceName}
-          {serviceName && <span> &gt;</span>}
-        </a>
-        <a href='#' className='text-black btn btn-gray'>
-          {getServiceName(service)}
-          {service && <span> &gt;</span>}
-        </a>
+      <div className='mb-1' style={{ marginRight: "10px", color: "green" }}>
+        {lockerLocationName}
+        {lockerLocationName && <span> &gt;</span>}
+      </div>
+      <div className='mb-1' style={{ marginRight: "10px", color: "green" }}>
+        {serviceName}
+        {serviceName && <span> &gt;</span>}
+      </div>
+      <div className='mb-1' style={{ marginRight: "10px", color: "green" }}>
+        {getServiceName(service)}
+        {service && <span> &gt;</span>}
       </div>
     </div>
   );

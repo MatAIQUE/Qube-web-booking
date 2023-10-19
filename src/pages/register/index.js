@@ -1,4 +1,3 @@
-"use client";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
@@ -8,9 +7,9 @@ import Textbox from "@/components/layout/textbox";
 import ProtectedRoute from "@/components/layout/protectedRoute/ProtectedRoute";
 import PHFlag from "../inputnumber/flag";
 import LeftPanel from "@/components/layout/leftPanel";
+
 const RegistrationPage = () => {
   const router = useRouter();
-
   const [step, setStep] = useState(1);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -29,7 +28,7 @@ const RegistrationPage = () => {
       if (step === 1) {
         if (
           name &&
-          email &&
+          isEmailValid(email) &&
           mobileNumber.length > 10 &&
           mpin.length > 5 &&
           confirmMpin > 5
@@ -57,6 +56,14 @@ const RegistrationPage = () => {
       event.preventDefault();
     }
   }
+
+  const isEmailValid = (email) => {
+    // Define a regular expression for email validation
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
+    // Test the email against the regex and return the result
+    return emailRegex.test(email);
+  };
 
   const handleNextStep = async () => {
     if (step === 1) {
@@ -97,7 +104,7 @@ const RegistrationPage = () => {
             otp,
           })
           .then((response) => {
-            router.push("/login");
+            router.push("/confirmation");
             setMobileNumber("");
             setMpin("");
             setEmail("");
@@ -142,7 +149,7 @@ const RegistrationPage = () => {
                 )}
 
                 <div className='col-lg-12'>
-                  <div className=''>Name</div>
+                  <div className=''>Full Name</div>
                   <div className='input-group mt-3'>
                     <Textbox
                       type='text'

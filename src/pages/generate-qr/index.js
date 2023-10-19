@@ -63,7 +63,7 @@ const GenerateQR = () => {
                           </div>
                         ) : (
                           <div>
-                            <strong>Door Sizes:</strong>
+                            <strong>Door Size:</strong>
                           </div>
                         )}
                       </div>

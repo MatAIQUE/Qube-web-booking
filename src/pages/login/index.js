@@ -56,7 +56,12 @@ const LoginPage = () => {
                 <div className='container-fluid'>
                   <div className='row'>
                     <div className='col-12 py-3 alert alert-warning font-semibold'>
-                      {global.config.globals.invalidCredential}
+                      <strong>Sorry, we couldn't sign you in.</strong>
+                      <br />
+                      <span>
+                        Please make sure you have entered the correct
+                        credentials
+                      </span>
                     </div>
                   </div>
                 </div>

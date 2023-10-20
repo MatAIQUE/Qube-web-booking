@@ -5,6 +5,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import qubeeAvatar from "@/assets/img/qubeeAvatar.svg";
+import qrIcon from "@/assets/img/QR.svg"
 
 const Layout = () => {
   const { user, logout } = useAuth();
@@ -19,6 +20,17 @@ const Layout = () => {
       pathname: "/generate-view-qr",
     });
   };
+
+  console.log(transaction[0].transStatus)
+  
+  // transStatus & Label
+  // 0 - QR Ready
+  // 1 - Picked up by Rider
+  // 2 - Washing
+  // 3 - Returning to Locker
+  // 4 - Ready for Pickup
+  // 5 - Completed
+  // 6 - Cancelled
 
   function getServiceName(transaction) {
     switch (transaction) {
@@ -62,10 +74,11 @@ const Layout = () => {
                         aria-expanded='false'
                         className=' text-decoration-none text-black'
                       >
-                        <i
+                        {/* <i
                           className='bi bi-bell'
                           style={{ fontSize: "28px", color: "green" }}
-                        ></i>
+                        ></i> */}
+                        <Image src={qrIcon} className="qr-icon"/>
                       </a>
                       <ul className='dropdown-menu py-3 mt-2'>
                         {isLoadingTrans && "Loading Transaction ..."}
@@ -85,19 +98,23 @@ const Layout = () => {
                         )}
 
                         {transaction.map((trans) => (
+                          // transStatus 0 && 4
+                          // transStatus 0 = drop
+                          // transStatus 4 = claim
                           <li key={trans._id}>
                             <a
                               onClick={(e) => handleQuickPin(trans)}
                               className='dropdown-item mb-2'
                               // href='/generate-view-qr'
                             >
-                              <span className='fw-bold small text-success'>
-                                {/* Your Quickpin is {trans.qpin} */}
-                                {/* get service name and replace module data */}
-                                Your quickpin for your {""}
-                                {getServiceName(trans.moduleData)} is ready
-                              </span>
-                              <br />
+                              <div className="">
+                                <span className='fw-bold small text-success'>
+                                  {/* Your Quickpin is {trans.qpin} */}
+                                  {/* get service name and replace module data */}
+                                  Your quickpin for your {""}
+                                  {getServiceName(trans.moduleData)} is ready
+                                </span>
+                              </div>
                               <span className='text-muted small'>
                                 Transaction {trans.transNumber}
                               </span>
@@ -109,6 +126,11 @@ const Layout = () => {
                               <span className='text-muted small'>
                                 Tap here to view QR
                               </span>
+                              <br/>
+                              {/* transStatus=4 */}
+                              <div className="badge badge-pill bg-warning ">For Dropping</div>
+                              {/* transStatus=5 */}
+                              <div className="badge badge-pill bg-success mb-2">For Claiming</div>
                             </a>
                           </li>
                         ))}

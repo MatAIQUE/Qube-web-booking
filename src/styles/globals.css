@@ -365,6 +365,11 @@ input:focus-visible {
   }
 }
 
+.qr-icon {
+  height: 30px;
+  width: 30px;
+}
+
 .qubee-standing {
   width: 200px;
 }

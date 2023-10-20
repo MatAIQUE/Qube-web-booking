@@ -21,7 +21,7 @@ const Layout = () => {
     });
   };
 
-  console.log(transaction[0].transStatus)
+  // console.log(transaction[0].transStatus)
   
   // transStatus & Label
   // 0 - QR Ready
@@ -50,6 +50,17 @@ const Layout = () => {
         return null;
     }
   }
+  function getStatusName(transaction) {
+    switch (transaction) {
+      case "0":
+        return "For Dropping";
+      case "4":
+        return "For Claiming";
+      default:
+        return null;
+    }
+  }
+  
   // console.log(transaction);
 
   return (
@@ -128,9 +139,9 @@ const Layout = () => {
                               </span>
                               <br/>
                               {/* transStatus=4 */}
-                              <div className="badge badge-pill bg-warning ">For Dropping</div>
+                              <div className="badge badge-pill bg-warning ">{getStatusName(trans.transStatus)}</div>
                               {/* transStatus=5 */}
-                              <div className="badge badge-pill bg-success mb-2">For Claiming</div>
+                              <div className="badge badge-pill bg-success mb-2">{getStatusName(trans.transStatus)}</div>
                             </a>
                           </li>
                         ))}

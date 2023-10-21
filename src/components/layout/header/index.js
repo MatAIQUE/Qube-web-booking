@@ -5,7 +5,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import qubeeAvatar from "@/assets/img/qubeeAvatar.svg";
-import qrIcon from "@/assets/img/QR.svg"
+import qrIcon from "@/assets/img/QR.svg";
 
 const Layout = () => {
   const { user, logout } = useAuth();
@@ -21,8 +21,18 @@ const Layout = () => {
     });
   };
 
+  const filteredTrans = transaction?.filter(
+    (trans) => trans.transStatus === "0" || trans.transStatus === "4"
+  );
+
+  const sortedData = filteredTrans.sort(
+    (a, b) => new Date(b.DateCreated) - new Date(a.DateCreated)
+  );
+
+  const limitedData = sortedData.slice(0, 5);
+
   // console.log(transaction[0].transStatus)
-  
+
   // transStatus & Label
   // 0 - QR Ready
   // 1 - Picked up by Rider
@@ -60,7 +70,18 @@ const Layout = () => {
         return null;
     }
   }
-  
+
+  function getStatusBadge(transaction) {
+    switch (transaction) {
+      case "0":
+        return "bg-warning";
+      case "4":
+        return "bg-success";
+      default:
+        return null;
+    }
+  }
+
   // console.log(transaction);
 
   return (
@@ -89,11 +110,11 @@ const Layout = () => {
                           className='bi bi-bell'
                           style={{ fontSize: "28px", color: "green" }}
                         ></i> */}
-                        <Image src={qrIcon} className="qr-icon"/>
+                        <Image src={qrIcon} className='qr-icon' />
                       </a>
                       <ul className='dropdown-menu py-3 mt-2'>
                         {isLoadingTrans && "Loading Transaction ..."}
-                        {transaction.length < 1 && (
+                        {sortedData.length < 1 && (
                           <>
                             <li>
                               <span className='fw-bold small text-muted dropdown-item text-center'>
@@ -108,7 +129,7 @@ const Layout = () => {
                           </>
                         )}
 
-                        {transaction.map((trans) => (
+                        {limitedData.map((trans) => (
                           // transStatus 0 && 4
                           // transStatus 0 = drop
                           // transStatus 4 = claim
@@ -118,7 +139,7 @@ const Layout = () => {
                               className='dropdown-item mb-2'
                               // href='/generate-view-qr'
                             >
-                              <div className="">
+                              <div className=''>
                                 <span className='fw-bold small text-success'>
                                   {/* Your Quickpin is {trans.qpin} */}
                                   {/* get service name and replace module data */}
@@ -130,18 +151,38 @@ const Layout = () => {
                                 Transaction {trans.transNumber}
                               </span>
                               <br />
+                              <span className='text-muted small'>
+                                Date{" "}
+                                {new Date(trans.DateCreated).toLocaleDateString(
+                                  "en-US",
+                                  {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                  }
+                                )}
+                              </span>
+                              <br />
                               <span className='text-muted  small'>
                                 Location: {trans.locName}
                               </span>
                               <br />
-                              <span className='text-muted small'>
+                              {/* <span className='text-muted small'>
                                 Tap here to view QR
                               </span>
-                              <br/>
+                              <br /> */}
                               {/* transStatus=4 */}
-                              <div className="badge badge-pill bg-warning ">{getStatusName(trans.transStatus)}</div>
+                              <div
+                                className={`badge badge-pill ${getStatusBadge(
+                                  trans.transStatus
+                                )} `}
+                              >
+                                {getStatusName(trans.transStatus)}
+                              </div>
                               {/* transStatus=5 */}
-                              <div className="badge badge-pill bg-success mb-2">{getStatusName(trans.transStatus)}</div>
+                              {/* <div className='badge badge-pill bg-success mb-2'>
+                                {getStatusName(trans.transStatus)}
+                              </div> */}
                             </a>
                           </li>
                         ))}

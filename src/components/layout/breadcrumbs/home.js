@@ -20,15 +20,15 @@ const Home = ({ lockerLocationName, serviceName, service }) => {
 
   return (
     <div className='col-12 overflow-scroll invisible-scrollbar d-flex flex-wrap'>
-      <div className='mb-1' style={{ marginRight: "10px", color: "green" }}>
+      <div className='mb-1 text-muted' style={{ marginRight: "10px" }}>
         {lockerLocationName}
         {lockerLocationName && <span> &gt;</span>}
       </div>
-      <div className='mb-1' style={{ marginRight: "10px", color: "green" }}>
+      <div className='mb-1 text-muted' style={{ marginRight: "10px" }}>
         {serviceName}
         {serviceName && <span> &gt;</span>}
       </div>
-      <div className='mb-1' style={{ marginRight: "10px", color: "green" }}>
+      <div className='mb-1 text-muted' style={{ marginRight: "10px" }}>
         {getServiceName(service)}
         {service && <span> &gt;</span>}
       </div>

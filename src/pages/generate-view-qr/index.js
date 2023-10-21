@@ -21,6 +21,41 @@ const GenerateViewQR = () => {
 
   const transaction = JSON.parse(selectedTrans);
 
+  useEffect(() => {
+    // Check for transaction existence
+    if (!transaction) {
+      router.push("/"); // Redirect if there's no transaction
+    } else {
+      // Set location data and loading state
+      setLocData("");
+      setIsLoading(false);
+    }
+  }, [transaction, router]);
+
+  if (!transaction) {
+    // If there's no transaction, don't render the JSX
+    return null;
+  }
+
+  function getServiceName(moduleData) {
+    switch (moduleData) {
+      case "0001":
+        return "Wash";
+      case "0002":
+        return "DROP";
+      case "0003":
+        return "KEEP";
+      case "0004":
+        return "FOOD";
+      case "0005":
+        return "MOVE";
+      case "0006":
+        return "PAY";
+      default:
+        return null; // Handle other cases if needed
+    }
+  }
+
   const goHome = () => {
     // Use router here within the client-side check
     if (typeof window !== "undefined") {
@@ -41,6 +76,9 @@ const GenerateViewQR = () => {
         <div className='col-lg-6 right-panel mx-auto alert alert-success p-lg-5'>
           <div className='row mx-auto w-100'>
             <div className='col-lg-12 text-center col-xs-12 my-3'>
+              <span className='fw-bold fs-28'>
+                {getServiceName(transaction.moduleData)}
+              </span>
               <QRCodeGenerator quickpin={transaction?.qpin} />
               <br />
 
@@ -61,7 +99,7 @@ const GenerateViewQR = () => {
                       </div>
                     </div>
                     <div className='col-6 text-right'>
-                      <div className="px-5 py-3">
+                      <div className='px-5 py-3'>
                         <div> {transaction?.transNumber}</div>
                         <div> {transaction?.qpin}</div>
                         <div> {transaction?.serviceName}</div>

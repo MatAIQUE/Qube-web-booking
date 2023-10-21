@@ -25,7 +25,7 @@ const Home = ({ lockerLocationName, serviceName, service }) => {
         {lockerLocationName && <span> &gt;</span>}
       </div>
       <div className='mb-1 text-muted' style={{ marginRight: "10px" }}>
-        {serviceName}
+        {serviceName?.toUpperCase()}
         {serviceName && <span> &gt;</span>}
       </div>
       <div className='mb-1 text-muted' style={{ marginRight: "10px" }}>

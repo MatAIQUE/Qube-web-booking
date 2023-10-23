@@ -130,7 +130,6 @@ const RegistrationPage = () => {
       <div className='container-fluid pt-5'>
         <div className='row'>
           <LeftPanel
-            description='SMARTLOCKERS'
             title='Register your account and Verify OTP'
           />
           <div className='col-12 col-md-6 right-panel'>

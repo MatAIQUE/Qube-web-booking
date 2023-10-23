@@ -19,7 +19,8 @@ const Home = ({ lockerLocationName, serviceName, service }) => {
   }
 
   return (
-    <div className='col-12 overflow-scroll invisible-scrollbar d-flex flex-wrap'>
+    <>
+    {/* <div className='col-12 overflow-scroll invisible-scrollbar d-flex flex-wrap'>
       <div className='mb-1 text-muted' style={{ marginRight: "10px" }}>
         {lockerLocationName}
         {lockerLocationName && <span> &gt;</span>}
@@ -32,7 +33,32 @@ const Home = ({ lockerLocationName, serviceName, service }) => {
         {getServiceName(service)}
         {service && <span> &gt;</span>}
       </div>
-    </div>
+    </div> */}
+      <div className="btn btn-default d-flex flex-column me-3 mb-1">
+        <div className="text-muted mb-1 text-left small">Locker location</div>
+        <div className="font-success text-left">
+          {lockerLocationName}
+          {lockerLocationName && <span> &gt;</span>}
+        </div>
+      </div>
+
+      <div className="btn btn-default d-flex flex-column me-3 mb-1">
+        <div className="text-muted mb-1 text-left small">Service</div>
+        <div className="font-success text-left">
+          {serviceName}
+          {serviceName && <span> &gt;</span>}
+        </div>
+      </div>
+      
+      <div className="btn btn-default d-flex flex-column me-3 mb-1">
+        <div className="text-muted mb-1 text-left small">Wash option</div>
+        <div className="font-success text-left">
+          {getServiceName(service)}
+          {service && <span> &gt;</span>}
+        </div>
+      </div>
+      </>
+    
   );
 };
 

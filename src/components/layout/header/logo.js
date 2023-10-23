@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <div className=''>
       <Link href='/'>
-        <Image src={svgs.qubeLogo} alt='' />
+        <Image src={svgs.qubeLogo} alt='' className="logo-header" />
       </Link>
     </div>
   );

@@ -1,7 +1,5 @@
 import QRCodeGenerator from "@/components/layout/qrgenerator";
 import { useRouter } from "next/router";
-import BannerLogo from "@/components/layout/banner/bannerLogo";
-import BannerText from "@/components/layout/banner/bannerText";
 import { useEffect } from "react";
 import { useLoading } from "@/context/LoadingContext.jsx";
 import { useLocation } from "@/context/LocationContext";

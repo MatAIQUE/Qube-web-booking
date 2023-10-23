@@ -21,15 +21,40 @@ const Layout = () => {
     });
   };
 
-  const filteredTrans = transaction?.filter(
-    (trans) => trans.transStatus === "0" || trans.transStatus === "4"
-  );
+  const combinedResults = transaction?.filter((trans) => {
+    if (
+      (trans.moduleData === "0001" &&
+        (trans.transStatus === "0" || trans.transStatus === "4")) ||
+      // WASH
 
-  const sortedData = filteredTrans.sort(
+      // DROP - if user mobile no# = transaction mobile no# and user.mobile no# = transaction receiver no#
+      (trans.moduleData === "0002" &&
+        user.mobileNumber === trans.mobileNumber &&
+        user.mobileNumber === trans.receiverNumber &&
+        trans.transStatus === "0") ||
+      (trans.moduleData === "0002" &&
+        user.mobileNumber === trans.mobileNumber &&
+        user.mobileNumber === trans.receiverNumber &&
+        trans.transStatus === "4") ||
+      // DROP show if user mobile no# = transaction  receiver no#
+      (trans.moduleData === "0002" &&
+        user.mobileNumber === trans.receiverNumber &&
+        trans.transStatus === "0") ||
+      // DROP - if user mobile no# != transaction mobile no# and user.mobile no# = transaction receiver no#
+      (trans.moduleData === "0002" &&
+        user.mobileNumber !== trans.receiverNumber &&
+        user.mobileNumber == trans.mobileNumber &&
+        trans.transStatus === "4")
+    ) {
+      return true;
+    }
+  });
+
+  // Sort and limit as needed
+  const sortedData = combinedResults.sort(
     (a, b) => new Date(b.DateCreated) - new Date(a.DateCreated)
   );
-
-  const limitedData = sortedData.slice(0, 5);
+  const limitedData = sortedData.slice(0, 10);
 
   // console.log(transaction[0].transStatus)
 
@@ -165,6 +190,14 @@ const Layout = () => {
                               <br />
                               <span className='text-muted  small'>
                                 Location: {trans.locName}
+                              </span>
+                              <br />
+                              <span className='text-muted  small'>
+                                Trans Mobile No#: {trans.mobileNumber}
+                              </span>
+                              <br />
+                              <span className='text-muted  small'>
+                                User Mobile No#: {user.mobileNumber}
                               </span>
                               <br />
                               {/* <span className='text-muted small'>

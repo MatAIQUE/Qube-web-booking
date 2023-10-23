@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { useLoading } from "@/context/LoadingContext.jsx";
 import { useLocation } from "@/context/LocationContext";
 import LeftPanel from "@/components/layout/leftPanel";
+import { useAuth } from "@/context/AuthContext";
+import { useTransaction } from "@/context/TransactionContext";
 
 const GenerateQR = () => {
   const { setIsLoading } = useLoading();
@@ -13,6 +15,9 @@ const GenerateQR = () => {
     setIsLoading(false);
   }, []);
 
+  const { user } = useAuth();
+  const { transaction } = useTransaction();
+
   const router = useRouter();
   let transNumber = router.query.transNumber;
   let qpin = router.query.qpin;
@@ -20,6 +25,10 @@ const GenerateQR = () => {
   let serviceName = router.query.serviceName;
   let doorSize = router.query.doorSize;
   let service = router.query.service;
+  let mobileNumber = router.query.mobileNumber;
+  let receiverNumber = router.query.receiverNumber;
+  let transStatus = router.query.transStatus;
+  let moduleData = router.query.moduleData;
 
   // let service = router.query.service;
   let tat = router.query.tat;
@@ -97,8 +106,18 @@ const GenerateQR = () => {
           <div className='row mx-auto w-100'>
             <div className='col-lg-12 text-center col-xs-12 my-3'>
               <span className='fw-bold fs-28'>{serviceName}</span>
+              {/* (trans.moduleData === "0002" && user.mobileNumber ===
+              trans.mobileNumber && user.mobileNumber === trans.receiverNumber
+              && trans.transStatus === "0") || */}
+              {moduleData === "0002" &&
+              user.mobileNumber === mobileNumber &&
+              user.mobileNumber === receiverNumber &&
+              transStatus === "0" ? (
+                <QRCodeGenerator quickpin={qpin} />
+              ) : (
+                "Your transaction is processing"
+              )}
 
-              <QRCodeGenerator quickpin={qpin} />
               <br />
               <div className='col-lg-12'>
                 <div className='container-fluid'>
@@ -108,9 +127,9 @@ const GenerateQR = () => {
                         <div>
                           <strong>Transaction no.:</strong>
                         </div>
-                        <div>
+                        {/* <div>
                           <strong>QUICKPIN:</strong>
-                        </div>
+                        </div> */}
 
                         {serviceName === "Wash" ? (
                           <>
@@ -132,7 +151,7 @@ const GenerateQR = () => {
                     <div className='col-6 text-right'>
                       <div>
                         <div> {transNumber}</div>
-                        <div> {qpin}</div>
+                        {/* <div> {qpin}</div> */}
                         <div> {getServiceTypeName(service)}</div>
                         {serviceName === "Wash" ? (
                           <div> {tatTitle}</div>

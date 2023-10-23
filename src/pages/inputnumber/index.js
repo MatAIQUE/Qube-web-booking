@@ -56,12 +56,13 @@ const InputNumber = () => {
         .post(
           `https://pandora-2-0-live.onrender.com/api/${serviceFileName}/post/trans`,
           {
-            booking_Origin: "2",
+            booking_Origin: "3",
             mobileNumber: mobileNumber,
             doorSize: doorSize,
             moduleData: moduleData,
             receiverNumber: getMobileNumber,
             locData: locData,
+            transStatus: 0,
             milestone: [
               {
                 mlocData: locData,
@@ -81,6 +82,11 @@ const InputNumber = () => {
                 service: moduleData,
                 serviceName: serviceName,
                 doorSize: doorSize,
+                mobileNumber,
+                mobileNumber,
+                receiverNumber: getMobileNumber,
+                transStatus: 0,
+                moduleData: moduleData,
               },
             },
             "/generate-qr"

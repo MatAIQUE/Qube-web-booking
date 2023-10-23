@@ -22,7 +22,7 @@ const SizesList = () => {
         {
           pathname: "/inputnumber",
           query: {
-            booking_Origin: "2",
+            booking_Origin: "3",
             mobileNumber: mobileNumber,
             doorSize: e,
             moduleData: moduleData,

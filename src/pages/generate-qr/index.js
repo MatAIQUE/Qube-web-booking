@@ -109,14 +109,15 @@ const GenerateQR = () => {
               {/* (trans.moduleData === "0002" && user.mobileNumber ===
               trans.mobileNumber && user.mobileNumber === trans.receiverNumber
               && trans.transStatus === "0") || */}
-              {moduleData === "0002" &&
+              {/* {moduleData === "0002" &&
               user.mobileNumber === mobileNumber &&
               user.mobileNumber === receiverNumber &&
               transStatus === "0" ? (
-                <QRCodeGenerator quickpin={qpin} />
+                
               ) : (
                 "Your transaction is processing"
-              )}
+              )} */}
+              <QRCodeGenerator quickpin={qpin} />
 
               <br />
               <div className='col-lg-12'>

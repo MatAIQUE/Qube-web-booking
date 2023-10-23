@@ -1,5 +1,5 @@
 const svgs = {
-  qubeLogo: require("../assets/img/qube_logo.svg").default,
+  qubeLogo: require("../assets/img/qube-logo-new.svg").default,
   washSvg: require("../assets/img/washSvg.svg").default,
   moveSvg: require("../assets/img/moveSvg.svg").default,
   dropSvg: require("../assets/img/dropSvg.svg").default,

@@ -365,6 +365,11 @@ input:focus-visible {
   }
 }
 
+.logo-header {
+  width: 120px;
+  height: auto;
+}
+
 .qr-icon {
   height: 30px;
   width: 30px;

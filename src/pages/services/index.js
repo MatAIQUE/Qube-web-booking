@@ -68,8 +68,8 @@ const Services = () => {
       <div className='container-fluid'>
         <div className='row'>
           <LeftPanel
-            title='Select the Services of '
-            description='SMARTLOCKERS'
+            title='Choose from the'
+            description='SERVICES'
           />
           <div className='col-lg-6 right-panel'>
             <div className='row'>

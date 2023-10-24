@@ -58,8 +58,8 @@ const Location = () => {
         <div className='container-fluid'>
           <div className='row'>
             <div className='input-group mt-3 alert alert-success'>
-              <div className='text-center col-12 my-auto text-success'>
-                <label>Select your locker location to start the transaction</label>
+              <div className='text-center col-12 my-auto text-success px-5 px-md-0'>
+                <label>Select the locker location that you want to book</label>
               </div>
             </div>
             <div className='px-3'>

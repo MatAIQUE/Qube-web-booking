@@ -121,7 +121,7 @@ const Layout = () => {
 
   return (
     <>
-      <div className='container-fluid'>
+      <div className='container'>
         <div className='row'>
           <div className='col-12 py-2 py-md-5'>
             <div className='row my-auto'>
@@ -131,7 +131,7 @@ const Layout = () => {
 
               {user ? (
                 <div className='col-6 my-auto d-flex justify-content-end'>
-                  <ul className='my-auto ps-4'>
+                  <ul className='my-auto ms-4'>
                     {" "}
                     <li className='nav-item dropdown'>
                       <a
@@ -139,7 +139,7 @@ const Layout = () => {
                         role='button'
                         data-bs-toggle='dropdown'
                         aria-expanded='false'
-                        className=' text-decoration-none text-black'
+                        className=' text-decoration-none text-black d-flex justify-content-end'
                       >
                         {/* <i
                           className='bi bi-bell'
@@ -225,7 +225,7 @@ const Layout = () => {
                       </ul>
                     </li>
                   </ul>
-                  <ul className='my-auto ps-4'>
+                  <ul className='my-auto ms-4'>
                     {" "}
                     <li className='nav-item dropdown'>
                       <a
@@ -233,9 +233,9 @@ const Layout = () => {
                         role='button'
                         data-bs-toggle='dropdown'
                         aria-expanded='false'
-                        className='text-decoration-none text-qube'
+                        className='text-decoration-none text-qube d-flex justify-content-end'
                       >
-                        <Image src={qubeeAvatar} className='w-100 avatar' />
+                        <Image src={qubeeAvatar} className='avatar' />
                       </a>
                       <ul className='dropdown-menu mt-3'>
                         <li className='pe-none'>

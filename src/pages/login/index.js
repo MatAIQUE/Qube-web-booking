@@ -44,7 +44,7 @@ const LoginPage = () => {
 
   return (
     <ProtectedRoute>
-      <div className='container-fluid pt-5'>
+      <div className='container-fluid pb-5'>
         <div className='row'>
           <LeftPanel
             description='Mobile number & MPIN'

@@ -105,7 +105,7 @@ const GenerateQR = () => {
         <div className='col-lg-6 right-panel mx-auto alert alert-success p-lg-5'>
           <div className='row mx-auto w-100'>
             <div className='col-lg-12 text-center col-xs-12 my-3'>
-              <span className='fw-bold fs-28'>{serviceName}</span>
+              <span className='fw-bold fs-28 text-uppercase'> <p>{serviceName}</p></span>
 
               <QRCodeGenerator quickpin={qpin} />
 

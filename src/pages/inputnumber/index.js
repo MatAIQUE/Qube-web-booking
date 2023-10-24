@@ -70,7 +70,7 @@ const InputNumber = () => {
   return (
     <div className='container-fluid pt-5'>
       <div className='row'>
-        <LeftPanel title='Please enter' description='Sender Mobile Number' />
+        <LeftPanel title='Please enter' description='Sender mobile number' />
 
         <div className='col-lg-6 right-panel'>
           <div className='row mt-3'>
@@ -84,7 +84,7 @@ const InputNumber = () => {
                   />
                 )}
                 <div className='row'>
-                  <div className='row mb-5 px-3 alert alert-success'>
+                  <div className='mb-5 px-3 alert alert-success'>
                     <div className='container-fluid'>
                       <div className='row'>
                         <div className='col-8 font-semibold text-success my-auto'>

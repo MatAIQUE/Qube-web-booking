@@ -34,25 +34,23 @@ const Home = ({ lockerLocationName, serviceName, service }) => {
         {service && <span> &gt;</span>}
       </div>
     </div> */}
-      <div className="btn btn-default d-flex flex-column me-3 mb-1">
-        <div className="text-muted mb-1 text-left small">Locker location</div>
-        <div className="font-success text-left">
-          {lockerLocationName}
-          {lockerLocationName && <span> &gt;</span>}
-        </div>
+      <div className="btn font-success text-start btn-default d-flex flex-column text-nowrap">
+        {/* <div className="text-muted mb-1 text-left small">Locker location</div> */}
+          {lockerLocationName + ` >`}
+          
       </div>
 
-      <div className="btn btn-default d-flex flex-column me-3 mb-1">
-        <div className="text-muted mb-1 text-left small">Service</div>
-        <div className="font-success text-left">
+      <div className="btn font-success text-start btn-default d-flex flex-column text-nowrap">
+        {/* <div className="text-muted mb-1 text-left small">Service</div> */}
+        <div className="font-success text-left w-100">
           {serviceName}
           {serviceName && <span> &gt;</span>}
         </div>
       </div>
-      
-      <div className="btn btn-default d-flex flex-column me-3 mb-1">
-        <div className="text-muted mb-1 text-left small">Wash option</div>
-        <div className="font-success text-left">
+
+      <div className="btn font-success text-start btn-default d-flex flex-column text-nowrap">
+        {/* <div className="text-muted mb-1 text-left small">Wash option</div> */}
+        <div className="font-success text-left w-100">
           {getServiceName(service)}
           {service && <span> &gt;</span>}
         </div>

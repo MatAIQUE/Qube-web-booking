@@ -127,10 +127,11 @@ const RegistrationPage = () => {
 
   return (
     <ProtectedRoute>
-      <div className='container-fluid pt-5'>
+      <div className='container-fluid pb-5'>
         <div className='row'>
           <LeftPanel
-            title='Register your account and Verify OTP'
+            title='Register to experience'
+            description='how we define convenience'
           />
           <div className='col-12 col-md-6 right-panel'>
             {step === 1 && (
@@ -228,7 +229,7 @@ const RegistrationPage = () => {
                       value={confirmMpin}
                       onChange={handleConfirmMpinChange}
                       maxLength='6'
-                      placeholder='Please enter confirm 6-digit MPIN'
+                      placeholder='Please confirm 6-digit MPIN'
                       css=''
                     />
                   </div>

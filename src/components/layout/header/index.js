@@ -1,8 +1,8 @@
+import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/router";
 import { useTransaction } from "@/context/TransactionContext";
 import Logo from "./logo";
 import Menu from "./menu";
-import { useAuth } from "@/context/AuthContext";
-import { useRouter } from "next/router";
 import Image from "next/image";
 import qubeeAvatar from "@/assets/img/qubeeAvatar.svg";
 import qrIcon from "@/assets/img/QR.svg";
@@ -26,51 +26,34 @@ const Layout = () => {
       if (
         // WASH SERVICE
         (trans.moduleData === "0001" &&
-          user.mobileNumber === trans.userMobile &&
+          user?.mobileNumber === trans.userMobile &&
           trans.transStatus === "0") ||
         trans.transStatus === "4" ||
         // DROP SERVICE
         (trans.moduleData === "0002" &&
-          user.mobileNumber === trans.userMobile &&
+          user?.mobileNumber === trans.userMobile &&
           trans.transStatus === "0") ||
         // if login user mobile number === transaction mobile number = tranStatus 0 for Dropping
-        (user.mobileNumber === trans.mobileNumber &&
+        (user?.mobileNumber === trans.mobileNumber &&
           trans.transStatus === "0") ||
         // if receiver mobile number === user.mobile number = tranStatus 4 for Claiming
-        (user.mobileNumber === trans.receiverNumber &&
+        (user?.mobileNumber === trans.receiverNumber &&
           trans.transStatus === "4") ||
         // FOOD SERVICE
         (trans.moduleData === "0004" &&
-          user.mobileNumber === trans.userMobile &&
+          user?.mobileNumber === trans.userMobile &&
           trans.transStatus === "0") ||
         // if login user mobile number === transaction mobile number = tranStatus 0 for Dropping
-        (user.mobileNumber === trans.mobileNumber &&
+        (user?.mobileNumber === trans.mobileNumber &&
           trans.transStatus === "0") ||
         // if receiver mobile number === user.mobile number = tranStatus 4 for Claiming
-        (user.mobileNumber === trans.receiverNumber &&
+        (user?.mobileNumber === trans.receiverNumber &&
           trans.transStatus === "4")
       ) {
         return true;
       }
       return false;
     }),
-    // ...transaction?.filter((trans) => {
-    //   // DROP (moduleData === "0002")
-    //   if (
-    //     (trans.moduleData === "0004" &&
-    //       user.mobileNumber === trans.userMobile &&
-    //       trans.transStatus === "0") ||
-    //     // if login user mobile number === transaction mobile number = tranStatus 0 for Dropping
-    //     (user.mobileNumber === trans.mobileNumber &&
-    //       trans.transStatus === "0") ||
-    //     // if receiver mobile number === user.mobile number = tranStatus 4 for Claiming
-    //     (user.mobileNumber === trans.receiverNumber &&
-    //       trans.transStatus === "4")
-    //   ) {
-    //     return true;
-    //   }
-    //   return false;
-    // }),
   ];
 
   // Sort and limit as needed
@@ -141,10 +124,6 @@ const Layout = () => {
                         aria-expanded='false'
                         className=' text-decoration-none text-black d-flex justify-content-end'
                       >
-                        {/* <i
-                          className='bi bi-bell'
-                          style={{ fontSize: "28px", color: "green" }}
-                        ></i> */}
                         <Image src={qrIcon} className='qr-icon' />
                       </a>
                       <ul className='dropdown-menu py-3 mt-2'>
@@ -165,19 +144,13 @@ const Layout = () => {
                         )}
 
                         {limitedData.map((trans) => (
-                          // transStatus 0 && 4
-                          // transStatus 0 = drop
-                          // transStatus 4 = claim
                           <li key={trans._id}>
                             <a
                               onClick={(e) => handleQuickPin(trans)}
                               className='dropdown-item mb-2'
-                              // href='/generate-view-qr'
                             >
                               <div className=''>
                                 <span className='fw-bold small text-success'>
-                                  {/* Your Quickpin is {trans.qpin} */}
-                                  {/* get service name and replace module data */}
                                   Your quickpin for your {""}
                                   {getServiceName(trans.moduleData)} is ready
                                 </span>
@@ -203,11 +176,6 @@ const Layout = () => {
                               </span>
                               <br />
 
-                              {/* <span className='text-muted small'>
-                                Tap here to view QR
-                              </span>
-                              <br /> */}
-                              {/* transStatus=4 */}
                               <div
                                 className={`badge badge-pill ${getStatusBadge(
                                   trans.transStatus
@@ -215,10 +183,6 @@ const Layout = () => {
                               >
                                 {getStatusName(trans.transStatus)}
                               </div>
-                              {/* transStatus=5 */}
-                              {/* <div className='badge badge-pill bg-success mb-2'>
-                                {getStatusName(trans.transStatus)}
-                              </div> */}
                             </a>
                           </li>
                         ))}

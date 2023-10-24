@@ -11,15 +11,24 @@ import LeftPanel from "@/components/layout/leftPanel";
 const GenerateViewQR = () => {
   const { setIsLoading } = useLoading();
   const { setLocData } = useLocation();
-  useEffect(() => {
-    setLocData("");
-    setIsLoading(false);
-  }, []);
 
   const router = useRouter();
   const { selectedTrans } = useTransaction();
 
   const transaction = JSON.parse(selectedTrans);
+
+  useEffect(() => {
+    if (!transaction) {
+      router.push("/");
+    } else {
+      setLocData("");
+      setIsLoading(false);
+    }
+  }, [transaction]);
+
+  if (!transaction) {
+    return null;
+  }
 
   const goHome = () => {
     // Use router here within the client-side check

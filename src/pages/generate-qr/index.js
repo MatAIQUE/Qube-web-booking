@@ -106,17 +106,7 @@ const GenerateQR = () => {
           <div className='row mx-auto w-100'>
             <div className='col-lg-12 text-center col-xs-12 my-3'>
               <span className='fw-bold fs-28'>{serviceName}</span>
-              {/* (trans.moduleData === "0002" && user.mobileNumber ===
-              trans.mobileNumber && user.mobileNumber === trans.receiverNumber
-              && trans.transStatus === "0") || */}
-              {/* {moduleData === "0002" &&
-              user.mobileNumber === mobileNumber &&
-              user.mobileNumber === receiverNumber &&
-              transStatus === "0" ? (
-                
-              ) : (
-                "Your transaction is processing"
-              )} */}
+
               <QRCodeGenerator quickpin={qpin} />
 
               <br />

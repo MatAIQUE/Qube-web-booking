@@ -2,26 +2,25 @@ import { useRouter } from "next/router";
 import Button from "@/components/layout/buttons/default";
 import { useEffect, useState } from "react";
 import SocialMedia from "@/components/layout/buttons/socialmedia";
-import { useAuth } from "@/context/AuthContext";
+
 import Lottie from "lottie-react";
 import bounceLoader from "../../assets/lottie/bounceLoader";
 import PHFlag from "./flag";
 import { useLoading } from "@/context/LoadingContext";
-import axios from "axios";
+
 import LeftPanel from "@/components/layout/leftPanel";
 
 const InputNumber = () => {
   const { isLoading, setIsLoading } = useLoading();
   const router = useRouter();
-  const [getMobileNumber, setGetMobileNumber] = useState(0);
+  const [senderMobileNumber, setSenderMobileNumber] = useState(0);
 
-  const [mobile, setMobile] = useState(0);
+  const [mobileSender, setMobileSender] = useState(0);
   const [active, setActive] = useState("");
 
   let locData = router.query.locData;
   let moduleData = router.query.moduleData;
   let serviceName = router.query.serviceName;
-  let mobileNumber = router.query.mobileNumber;
   let doorSize = router.query.doorSize;
   let serviceFileName = router.query.serviceFileName;
 
@@ -39,71 +38,39 @@ const InputNumber = () => {
   }
 
   useEffect(() => {
-    if (mobile.length > 10) {
+    if (mobileSender.length > 10) {
       setActive(true);
     } else {
       setActive(false);
     }
 
-    setMobile(getMobileNumber);
-    setGetMobileNumber(getMobileNumber);
+    setMobileSender(senderMobileNumber);
+    setSenderMobileNumber(senderMobileNumber);
   });
 
   const navPage = async () => {
-    setIsLoading(true);
-    try {
-      await axios
-        .post(
-          `https://pandora-2-0-live.onrender.com/api/${serviceFileName}/post/trans`,
-          {
-            booking_Origin: "3",
-            mobileNumber: mobileNumber,
-            doorSize: doorSize,
-            moduleData: moduleData,
-            receiverNumber: getMobileNumber,
-            locData: locData,
-            transStatus: 0,
-            milestone: [
-              {
-                mlocData: locData,
-              },
-            ],
-          }
-        )
-        .then((res) => {
-          // console.log(res.data);
-          router.push(
-            {
-              pathname: "/generate-qr",
-              query: {
-                qpin: res.data.qpin,
-                transNumber: res.data.transNumber,
-                location: res.data.location,
-                service: moduleData,
-                serviceName: serviceName,
-                doorSize: doorSize,
-                mobileNumber,
-                mobileNumber,
-                receiverNumber: getMobileNumber,
-                transStatus: 0,
-                moduleData: moduleData,
-              },
-            },
-            "/generate-qr"
-          );
-        });
-    } catch (err) {
-      console.log(err);
-    }
-
-    // console.log("Door Size", doorSize);
-    // console.log("Service", serviceName);
+    router.push(
+      {
+        pathname: "/inputreceiver",
+        query: {
+          locData: locData,
+          service: moduleData,
+          serviceName: serviceName,
+          doorSize: doorSize,
+          mobileSender,
+          mobileSender,
+          receiverNumber: senderMobileNumber,
+          serviceFileName: serviceFileName,
+        },
+      },
+      "/inputreceiver"
+    );
   };
 
   return (
     <div className='container-fluid pt-5'>
       <div className='row'>
-        <LeftPanel title='Please enter your' description='Recipient Number' />
+        <LeftPanel title='Please enter' description='Sender Mobile Number' />
 
         <div className='col-lg-6 right-panel'>
           <div className='row mt-3'>
@@ -117,6 +84,39 @@ const InputNumber = () => {
                   />
                 )}
                 <div className='row'>
+                  <div className='row mb-5 px-3 alert alert-success'>
+                    <div className='container-fluid'>
+                      <div className='row'>
+                        <div className='col-8 font-semibold text-success my-auto'>
+                          <label>1. Sender Mobile number</label>
+                        </div>
+
+                        <div className='col-4 my-auto tawkr'>
+                          <Lottie
+                            animationData={bounceLoader}
+                            loop={true}
+                            className='w-30'
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className='container-fluid'>
+                      <div className='row'>
+                        <div className='col-8 font-semibold text-success my-auto'>
+                          <label>2. Receiver Mobile number</label>
+                        </div>
+
+                        <div className='col-4 my-auto tawkr'>
+                          <Lottie
+                            animationData={bounceLoader}
+                            loop={true}
+                            className='w-30'
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className='input-group mt-3'>
                     <div className='input-group-prepend'>
                       <span
@@ -131,7 +131,7 @@ const InputNumber = () => {
                       type='text'
                       className='form-control fs-28 font-success height-66 text-center shadow-none'
                       maxLength={11}
-                      onChange={(e) => setGetMobileNumber(e.target.value)}
+                      onChange={(e) => setSenderMobileNumber(e.target.value)}
                       onKeyDown={onlyNumberInput}
                       id='validationCustomUsername'
                       placeholder='0 9 • •  • • •  • • • •'
@@ -154,7 +154,7 @@ const InputNumber = () => {
                   // service={service}
                   // moduleData={moduleData}
                   onClick={() => navPage()}
-                  content={global.config.globals.verificationText}
+                  content='Proceed'
                   css={
                     active
                       ? "mt-3 col-lg-6 col-12 border border-success rounded bg-gradients py-3 w-100"

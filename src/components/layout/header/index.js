@@ -8,10 +8,10 @@ import qubeeAvatar from "@/assets/img/qubeeAvatar.svg";
 import qrIcon from "@/assets/img/QR.svg";
 
 const Layout = () => {
-  const { user, logout } = useAuth();
-  const { transaction, isLoadingTrans } = useTransaction();
   const router = useRouter();
   const currentUrl = router.asPath;
+  const { user, logout } = useAuth();
+  const { transaction, isLoadingTrans } = useTransaction();
   const { setSelectedTrans } = useTransaction();
 
   const handleQuickPin = (trans) => {
@@ -21,51 +21,63 @@ const Layout = () => {
     });
   };
 
-  const combinedResults = transaction?.filter((trans) => {
-    if (
-      (trans.moduleData === "0001" &&
-        (trans.transStatus === "0" || trans.transStatus === "4")) ||
-      // WASH
-
-      // DROP - if user mobile no# = transaction mobile no# and user.mobile no# = transaction receiver no#
-      (trans.moduleData === "0002" &&
-        user.mobileNumber === trans.mobileNumber &&
-        user.mobileNumber === trans.receiverNumber &&
-        trans.transStatus === "0") ||
-      (trans.moduleData === "0002" &&
-        user.mobileNumber === trans.mobileNumber &&
-        user.mobileNumber === trans.receiverNumber &&
-        trans.transStatus === "4") ||
-      // DROP show if user mobile no# = transaction  receiver no#
-      (trans.moduleData === "0002" &&
-        user.mobileNumber === trans.receiverNumber &&
-        trans.transStatus === "0") ||
-      // DROP - if user mobile no# != transaction mobile no# and user.mobile no# = transaction receiver no#
-      (trans.moduleData === "0002" &&
-        user.mobileNumber !== trans.receiverNumber &&
-        user.mobileNumber == trans.mobileNumber &&
-        trans.transStatus === "4")
-    ) {
-      return true;
-    }
-  });
+  const combinedResults = [
+    ...transaction?.filter((trans) => {
+      if (
+        // WASH SERVICE
+        (trans.moduleData === "0001" &&
+          user.mobileNumber === trans.userMobile &&
+          trans.transStatus === "0") ||
+        trans.transStatus === "4" ||
+        // DROP SERVICE
+        (trans.moduleData === "0002" &&
+          user.mobileNumber === trans.userMobile &&
+          trans.transStatus === "0") ||
+        // if login user mobile number === transaction mobile number = tranStatus 0 for Dropping
+        (user.mobileNumber === trans.mobileNumber &&
+          trans.transStatus === "0") ||
+        // if receiver mobile number === user.mobile number = tranStatus 4 for Claiming
+        (user.mobileNumber === trans.receiverNumber &&
+          trans.transStatus === "4") ||
+        // FOOD SERVICE
+        (trans.moduleData === "0004" &&
+          user.mobileNumber === trans.userMobile &&
+          trans.transStatus === "0") ||
+        // if login user mobile number === transaction mobile number = tranStatus 0 for Dropping
+        (user.mobileNumber === trans.mobileNumber &&
+          trans.transStatus === "0") ||
+        // if receiver mobile number === user.mobile number = tranStatus 4 for Claiming
+        (user.mobileNumber === trans.receiverNumber &&
+          trans.transStatus === "4")
+      ) {
+        return true;
+      }
+      return false;
+    }),
+    // ...transaction?.filter((trans) => {
+    //   // DROP (moduleData === "0002")
+    //   if (
+    //     (trans.moduleData === "0004" &&
+    //       user.mobileNumber === trans.userMobile &&
+    //       trans.transStatus === "0") ||
+    //     // if login user mobile number === transaction mobile number = tranStatus 0 for Dropping
+    //     (user.mobileNumber === trans.mobileNumber &&
+    //       trans.transStatus === "0") ||
+    //     // if receiver mobile number === user.mobile number = tranStatus 4 for Claiming
+    //     (user.mobileNumber === trans.receiverNumber &&
+    //       trans.transStatus === "4")
+    //   ) {
+    //     return true;
+    //   }
+    //   return false;
+    // }),
+  ];
 
   // Sort and limit as needed
   const sortedData = combinedResults.sort(
     (a, b) => new Date(b.DateCreated) - new Date(a.DateCreated)
   );
   const limitedData = sortedData.slice(0, 10);
-
-  // console.log(transaction[0].transStatus)
-
-  // transStatus & Label
-  // 0 - QR Ready
-  // 1 - Picked up by Rider
-  // 2 - Washing
-  // 3 - Returning to Locker
-  // 4 - Ready for Pickup
-  // 5 - Completed
-  // 6 - Cancelled
 
   function getServiceName(transaction) {
     switch (transaction) {
@@ -106,8 +118,6 @@ const Layout = () => {
         return null;
     }
   }
-
-  // console.log(transaction);
 
   return (
     <>
@@ -192,14 +202,7 @@ const Layout = () => {
                                 Location: {trans.locName}
                               </span>
                               <br />
-                              <span className='text-muted  small'>
-                                Trans Mobile No#: {trans.mobileNumber}
-                              </span>
-                              <br />
-                              <span className='text-muted  small'>
-                                User Mobile No#: {user.mobileNumber}
-                              </span>
-                              <br />
+
                               {/* <span className='text-muted small'>
                                 Tap here to view QR
                               </span>

@@ -261,6 +261,12 @@ const RegistrationPage = () => {
 
             <div className='row'>
               <div className='col-lg-12'>
+                <div className="text-center w-100 my-4">
+                  <p className="text-muted small">
+                    By registering, I agree to QUBE's <a href="https://privacypolicy.qubesmartlockers.com/"
+            target="_blank">Terms & Conditions and Privacy Policy</a>
+                  </p>
+                </div>
                 <Button
                   onClick={handleNextStep}
                   content={step === 1 ? "Register Account" : "Verify OTP "}

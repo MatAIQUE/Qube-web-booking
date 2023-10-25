@@ -244,7 +244,7 @@ const RegistrationPage = () => {
                     <strong>OTP is incorrect</strong>
                   </div>
                 )}
-                <p className="text-muted d-flex align-items-center">OTP Sent to <span className="font-semibold font-success">{mobileNumber} </span> <span className="btn btn-default-sm mx-3 text-muted">Change</span></p>
+                <p className="text-muted d-flex align-items-center">OTP Sent to <span className="mx-2 font-semibold font-success">{mobileNumber} </span> <span className="btn btn-default-sm mx-3 text-muted">Change</span></p>
                 <div className='my-3'>Enter the OTP that you received</div>
                 <div className='input-group'>
                   <Textbox

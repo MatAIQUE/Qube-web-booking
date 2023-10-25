@@ -45,7 +45,7 @@
 
 select {
   background-image: url("../assets/img/target.svg") !important;
-}
+} 
 
 .invisible-scrollbar::-webkit-scrollbar {
   display: none;

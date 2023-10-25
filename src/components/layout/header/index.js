@@ -25,10 +25,10 @@ const Layout = () => {
     ...transaction?.filter((trans) => {
       if (
         // WASH SERVICE
-        (trans.moduleData === "0001" &&
-          user?.mobileNumber === trans.userMobile &&
-          trans.transStatus === "0") ||
-        trans.transStatus === "4" ||
+        // (trans.moduleData === "0001" &&
+        //   user?.mobileNumber === trans.userMobile &&
+        //   trans.transStatus === "0") ||
+        // trans.transStatus === "4" ||
         // DROP SERVICE
         (trans.moduleData === "0002" &&
           user?.mobileNumber === trans.userMobile &&
@@ -38,17 +38,19 @@ const Layout = () => {
           trans.transStatus === "0") ||
         // if receiver mobile number === user.mobile number = tranStatus 4 for Claiming
         (user?.mobileNumber === trans.receiverNumber &&
-          trans.transStatus === "4") ||
-        // FOOD SERVICE
-        (trans.moduleData === "0004" &&
-          user?.mobileNumber === trans.userMobile &&
-          trans.transStatus === "0") ||
-        // if login user mobile number === transaction mobile number = tranStatus 0 for Dropping
-        (user?.mobileNumber === trans.mobileNumber &&
-          trans.transStatus === "0") ||
-        // if receiver mobile number === user.mobile number = tranStatus 4 for Claiming
-        (user?.mobileNumber === trans.receiverNumber &&
           trans.transStatus === "4")
+
+        //   ||
+        // // FOOD SERVICE
+        // (trans.moduleData === "0004" &&
+        //   user?.mobileNumber === trans.userMobile &&
+        //   trans.transStatus === "0") ||
+        // // if login user mobile number === transaction mobile number = tranStatus 0 for Dropping
+        // (user?.mobileNumber === trans.mobileNumber &&
+        //   trans.transStatus === "0") ||
+        // // if receiver mobile number === user.mobile number = tranStatus 4 for Claiming
+        // (user?.mobileNumber === trans.receiverNumber &&
+        //   trans.transStatus === "4")
       ) {
         return true;
       }

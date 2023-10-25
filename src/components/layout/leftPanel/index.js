@@ -7,7 +7,7 @@ const LeftPanel = ({ title, description }) => {
       <div className='row'>
         {/* <div className='col-7 col-md-12'> */}
         <div className="col-12 d-block d-md-none">
-          <a type="button" href="#" className="btn btn-default text-muted">&lt; Back</a>
+          {/* <a type="button" href="#" className="btn btn-default text-muted">&lt; Back</a> */}
           {/* hide back button on register */}
         </div>
         <div className='col-12'>

@@ -17,7 +17,7 @@ const pageNotFound = () => {
                     className=''
                     />
                 </div>
-                <h5 className="text-center display-6">Go back to <Link className="text-transform-none" href={'/'}>home</Link></h5>
+                <h3 className="text-center">Go back to <Link className="text-transform-none" href={'/'}>home</Link></h3>
             </div>
         </div>
     )

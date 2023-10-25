@@ -244,8 +244,8 @@ const RegistrationPage = () => {
                     <strong>OTP is incorrect</strong>
                   </div>
                 )}
-
-                <div className='mt-3'>Enter the OTP that you received</div>
+                <p className="text-muted d-flex align-items-center">OTP Sent to <span className="font-semibold font-success">{mobileNumber} </span> <span className="btn btn-default-sm mx-3 text-muted">Change</span></p>
+                <div className='my-3'>Enter the OTP that you received</div>
                 <div className='input-group'>
                   <Textbox
                     type='text'
@@ -256,6 +256,8 @@ const RegistrationPage = () => {
                     className='form-control fs-28 font-success height-66 text-center shadow-none'
                   />
                 </div>
+                <p type="button" className="btn btn-default mt-3">Resend OTP</p>
+
               </div>
             )}
 
@@ -264,7 +266,7 @@ const RegistrationPage = () => {
                 <div className="text-center w-100 my-4">
                   <p className="text-muted small">
                     By registering, I agree to QUBE's <a href="https://privacypolicy.qubesmartlockers.com/"
-            target="_blank">Terms & Conditions and Privacy Policy</a>
+                    target="_blank">Terms & Conditions and Privacy Policy</a>
                   </p>
                 </div>
                 <Button
